@@ -38,7 +38,7 @@ final class JsonContext extends BaseJsonContext
             throw new \Exception('The expected JSON is not a valid');
         }
 
-        $actual = new Json(json_encode($this->sortArrays($actual->getContent())));
+        $actual   = new Json(json_encode($this->sortArrays($actual->getContent())));
         $expected = new Json(json_encode($this->sortArrays($expected->getContent())));
 
         $this->assertSame(

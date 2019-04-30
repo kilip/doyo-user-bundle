@@ -53,10 +53,10 @@ final class DoctrineContext implements Context
 
     public function __construct(ManagerRegistry $doctrine)
     {
-        $this->doctrine = $doctrine;
-        $this->manager = $doctrine->getManager();
+        $this->doctrine   = $doctrine;
+        $this->manager    = $doctrine->getManager();
         $this->schemaTool = new SchemaTool($this->manager);
-        $this->classes = $this->manager->getMetadataFactory()->getAllMetadata();
+        $this->classes    = $this->manager->getMetadataFactory()->getAllMetadata();
     }
 
     /**
@@ -94,8 +94,8 @@ final class DoctrineContext implements Context
     public function thereAreNoUserWithUsername($username)
     {
         $manager = $this->manager;
-        $repo = $manager->getRepository(User::class);
-        $user = $repo->findByUsername($username);
+        $repo    = $manager->getRepository(User::class);
+        $user    = $repo->findByUsername($username);
         if ($user instanceof UserInterface) {
             $manager->remove($user);
             $manager->flush();

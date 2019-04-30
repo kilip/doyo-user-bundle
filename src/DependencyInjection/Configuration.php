@@ -26,10 +26,10 @@ final class Configuration implements ConfigurationInterface
         //@codeCoverageIgnoreStart
         if (method_exists(TreeBuilder::class, 'getRootNode')) {
             $treeBuilder = new TreeBuilder('doyo_user');
-            $rootNode = $treeBuilder->getRootNode();
+            $rootNode    = $treeBuilder->getRootNode();
         } else {
             $treeBuilder = new TreeBuilder();
-            $rootNode = $treeBuilder->root('doyo_user');
+            $rootNode    = $treeBuilder->root('doyo_user');
         }
         //@codeCoverageIgnoreEnd
 

@@ -40,7 +40,7 @@ class UserListenerTest extends TestCase
         parent::setUp();
 
         $this->passwordUpdater = $this->createMock(PasswordUpdaterInterface::class);
-        $this->target = new UserListener($this->passwordUpdater);
+        $this->target          = new UserListener($this->passwordUpdater);
     }
 
     public function testGetSubscribedEvents()
@@ -66,13 +66,13 @@ class UserListenerTest extends TestCase
      */
     public function testOnSubscribedEvents($eventName, $recomputeChanges = false)
     {
-        $target = $this->target;
+        $target          = $this->target;
         $passwordUpdater = $this->passwordUpdater;
-        $args = $this->createMock(LifecycleEventArgs::class);
-        $user = $this->createMock(UserInterface::class);
-        $meta = $this->createMock(ClassMetadata::class);
-        $manager = $this->getMockBuilder(EntityManagerInterface::class)->disableOriginalConstructor()->getMock();
-        $uow = $this->getMockBuilder(UnitOfWork::class)->disableOriginalConstructor()->getMock();
+        $args            = $this->createMock(LifecycleEventArgs::class);
+        $user            = $this->createMock(UserInterface::class);
+        $meta            = $this->createMock(ClassMetadata::class);
+        $manager         = $this->getMockBuilder(EntityManagerInterface::class)->disableOriginalConstructor()->getMock();
+        $uow             = $this->getMockBuilder(UnitOfWork::class)->disableOriginalConstructor()->getMock();
 
         $args->expects($this->exactly(2))
             ->method('getObject')

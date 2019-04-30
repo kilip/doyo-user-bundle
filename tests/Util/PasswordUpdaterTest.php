@@ -24,11 +24,11 @@ class PasswordUpdaterTest extends TestCase
 {
     public function testHashPassword()
     {
-        $factory = $this->createMock(EncoderFactoryInterface::class);
-        $user = $this->createMock(UserInterface::class);
-        $passEncoder = $this->createMock(PasswordEncoderInterface::class);
+        $factory       = $this->createMock(EncoderFactoryInterface::class);
+        $user          = $this->createMock(UserInterface::class);
+        $passEncoder   = $this->createMock(PasswordEncoderInterface::class);
         $bcryptEncoder = $this->createMock(BCryptPasswordEncoder::class);
-        $target = new PasswordUpdater($factory);
+        $target        = new PasswordUpdater($factory);
         $plainPassword = 'some-password';
 
         $user->expects($this->atLeastOnce())

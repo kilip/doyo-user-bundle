@@ -57,7 +57,7 @@ final class UserListener implements EventSubscriber
     private function recomputeChangeSet(LifecycleEventArgs $args, UserInterface $user)
     {
         $manager = $args->getObjectManager();
-        $meta = $manager->getClassMetadata(\get_class($user));
+        $meta    = $manager->getClassMetadata(\get_class($user));
 
         if ($manager instanceof EntityManagerInterface) {
             $manager->getUnitOfWork()->recomputeSingleEntityChangeSet($meta, $user);
