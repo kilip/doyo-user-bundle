@@ -17,7 +17,7 @@ install:
   - composer install --prefer-dist --no-progress --no-suggest --ansi
 
 script:
-  - 'if [[ $COVERAGE = yes ]] ]]; then
+  - 'if [[ $COVERAGE = yes ]]; then
         ./vendor/bin/behat -f progress -p coverage;
         ./vendor/bin/phpunit --coverage-php=build/cov/coverage-php.cov;
     else
