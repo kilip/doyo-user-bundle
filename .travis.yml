@@ -17,8 +17,8 @@ install:
   - composer install --prefer-dist --no-progress --no-suggest --ansi
 
 script:
-  - bin/console doctrine:database:create --env=test
-  - bin/console doctrine:schema:update --force --env=test
+  - ./console doctrine:database:create --env=test
+  - ./console doctrine:schema:update --force --env=test
   - 'if [[ $COVERAGE = yes ]]; then
         ./vendor/bin/behat -f progress -p coverage;
         ./vendor/bin/phpunit --coverage-php=build/cov/coverage-php.cov;
