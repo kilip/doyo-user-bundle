@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -11,10 +22,9 @@
 
 namespace Doyo\UserBundle\Util;
 
-
+use Doyo\UserBundle\Model\UserInterface;
 use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use Doyo\UserBundle\Model\UserInterface;
 
 class PasswordUpdater implements PasswordUpdaterInterface
 {
@@ -25,8 +35,7 @@ class PasswordUpdater implements PasswordUpdaterInterface
 
     public function __construct(
         EncoderFactoryInterface $encoderFactory
-    )
-    {
+    ) {
         $this->encoderFactory = $encoderFactory;
     }
 
@@ -34,7 +43,7 @@ class PasswordUpdater implements PasswordUpdaterInterface
     {
         $plainPassword = $user->getPlainPassword();
 
-        if (0 === strlen($plainPassword)) {
+        if (0 === \strlen($plainPassword)) {
             return;
         }
 

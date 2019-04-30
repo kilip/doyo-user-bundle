@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -16,10 +27,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\UnitOfWork;
 use Doyo\UserBundle\Listener\UserListener;
+use Doyo\UserBundle\Model\UserInterface;
 use Doyo\UserBundle\Util\PasswordUpdaterInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Doyo\UserBundle\Model\UserInterface;
 
 class UserListenerTest extends TestCase
 {
@@ -39,7 +50,6 @@ class UserListenerTest extends TestCase
 
         $this->passwordUpdater = $this->createMock(PasswordUpdaterInterface::class);
         $this->target = new UserListener($this->passwordUpdater);
-
     }
 
     public function testGetSubscribedEvents()
@@ -54,60 +64,53 @@ class UserListenerTest extends TestCase
     {
         return [
             ['prePersist'],
-            ['preUpdate', true]
+            ['preUpdate', true],
         ];
     }
 
     /**
      * @dataProvider getTestOnSubscribedEvents
+     *
      * @param string $eventName
      */
     public function testOnSubscribedEvents($eventName, $recomputeChanges = false)
     {
-        $target             = $this->target;
-        $passwordUpdater    = $this->passwordUpdater;
-        $args               = $this->createMock(LifecycleEventArgs::class);
-        $user               = $this->createMock(UserInterface::class);
-        $meta               = $this->createMock(ClassMetadata::class);
-        $manager            = $this->getMockBuilder(EntityManagerInterface::class)->disableOriginalConstructor()->getMock();
-        $uow                = $this->getMockBuilder(UnitOfWork::class)->disableOriginalConstructor()->getMock();
+        $target = $this->target;
+        $passwordUpdater = $this->passwordUpdater;
+        $args = $this->createMock(LifecycleEventArgs::class);
+        $user = $this->createMock(UserInterface::class);
+        $meta = $this->createMock(ClassMetadata::class);
+        $manager = $this->getMockBuilder(EntityManagerInterface::class)->disableOriginalConstructor()->getMock();
+        $uow = $this->getMockBuilder(UnitOfWork::class)->disableOriginalConstructor()->getMock();
 
         $args->expects($this->exactly(2))
             ->method('getObject')
             ->willReturnOnConsecutiveCalls($user);
-        ;
 
         $passwordUpdater->expects($this->once())
             ->method('hashPassword')
-            ->with($user)
-        ;
+            ->with($user);
 
-        if($recomputeChanges){
+        if ($recomputeChanges) {
             $args->expects($this->once())
                 ->method('getObjectManager')
-                ->willReturn($manager)
-            ;
+                ->willReturn($manager);
 
             $manager->expects($this->once())
                 ->method('getUnitOfWork')
-                ->willReturn($uow)
-            ;
+                ->willReturn($uow);
             $manager->expects($this->once())
                 ->method('getClassMetadata')
-                ->willReturn($meta)
-            ;
+                ->willReturn($meta);
             $uow
                 ->expects($this->once())
-                ->method('recomputeSingleEntityChangeSet')
-            ;
+                ->method('recomputeSingleEntityChangeSet');
         }
 
         // test when user
-        call_user_func([$target,$eventName],$args);
+        \call_user_func([$target, $eventName], $args);
 
         // test not called when object is not a user
-        call_user_func([$target,$eventName],$args);
+        \call_user_func([$target, $eventName], $args);
     }
-
-
 }

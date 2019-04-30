@@ -1,10 +1,21 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Symfony\Component\Dotenv\Dotenv;
 
-require realpath(__DIR__ . '/../../../../vendor/autoload.php');
+require realpath(__DIR__.'/../../../../vendor/autoload.php');
 
-$base = realpath(__DIR__ . '/../../../../');
+$base = realpath(__DIR__.'/../../../../');
 // Load cached env vars if the .env.local.php file exists
 // Run "composer dump-env prod" to create it (requires symfony/flex >=1.2)
 if (is_array($env = @include $base.'/.env.local.php')) {

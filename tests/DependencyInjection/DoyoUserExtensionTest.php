@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -24,30 +35,29 @@ class DoyoUserExtensionTest extends AbstractExtensionTestCase
         ];
     }
 
-
-    public function test_after_parameter_set()
+    public function testAfterParameterSet()
     {
         $this->load([
-            'user_class' => 'App\\Entity\\User'
+            'user_class' => 'App\\Entity\\User',
         ]);
 
-        $this->assertContainerBuilderHasParameter('doyo.user.user_class','App\\Entity\\User');
+        $this->assertContainerBuilderHasParameter('doyo.user.user_class', 'App\\Entity\\User');
     }
 
-    public function test_error_when_user_class_not_set()
+    public function testErrorWhenUserClassNotSet()
     {
         $this->expectException(InvalidConfigurationException::class);
 
         $this->load([]);
     }
 
-    public function test_error_when_class_not_exists()
+    public function testErrorWhenClassNotExists()
     {
         $this->expectException(InvalidConfigurationException::class);
         $this->expectExceptionMessage('Error setting User class. The class "Foo\Bar" is not exists.');
 
         $this->load([
-            'user_class' => 'Foo\\Bar'
+            'user_class' => 'Foo\\Bar',
         ]);
     }
 }

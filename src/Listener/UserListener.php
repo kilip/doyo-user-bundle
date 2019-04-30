@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -11,12 +22,11 @@
 
 namespace Doyo\UserBundle\Listener;
 
-
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Doctrine\ORM\EntityManagerInterface;
-use Doyo\UserBundle\Util\PasswordUpdaterInterface;
 use Doyo\UserBundle\Model\UserInterface;
+use Doyo\UserBundle\Util\PasswordUpdaterInterface;
 
 final class UserListener implements EventSubscriber
 {
@@ -24,8 +34,7 @@ final class UserListener implements EventSubscriber
 
     public function __construct(
         PasswordUpdaterInterface $passwordUpdater
-    )
-    {
+    ) {
         $this->passwordUpdater = $passwordUpdater;
     }
 
@@ -33,14 +42,14 @@ final class UserListener implements EventSubscriber
     {
         return [
             'prePersist',
-            'preUpdate'
+            'preUpdate',
         ];
     }
 
     public function prePersist(LifecycleEventArgs $args)
     {
         $object = $args->getObject();
-        if($object instanceof UserInterface){
+        if ($object instanceof UserInterface) {
             $this->updateUser($object);
         }
     }
@@ -48,7 +57,7 @@ final class UserListener implements EventSubscriber
     public function preUpdate(LifecycleEventArgs $args)
     {
         $object = $args->getObject();
-        if($object instanceof UserInterface){
+        if ($object instanceof UserInterface) {
             $this->updateUser($object);
             $this->recomputeChangeSet($args, $object);
         }
@@ -57,9 +66,9 @@ final class UserListener implements EventSubscriber
     private function recomputeChangeSet(LifecycleEventArgs $args, UserInterface $user)
     {
         $manager = $args->getObjectManager();
-        $meta    = $manager->getClassMetadata(get_class($user));
+        $meta = $manager->getClassMetadata(\get_class($user));
 
-        if($manager instanceof EntityManagerInterface){
+        if ($manager instanceof EntityManagerInterface) {
             $manager->getUnitOfWork()->recomputeSingleEntityChangeSet($meta, $user);
         }
     }

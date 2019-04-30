@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the API Platform project.
+ * This file is part of the DoyoUserBundle project.
  *
- * (c) Kévin Dunglas <dunglas@gmail.com>
+ * (c) Anthonius Munthi <me@itstoni.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -59,14 +59,14 @@ final class JsonContext extends BaseJsonContext
 
     private function sortArrays($obj)
     {
-        $isObject = is_object($obj);
+        $isObject = \is_object($obj);
 
         foreach ($obj as $key => $value) {
             if (null === $value || is_scalar($value)) {
                 continue;
             }
 
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 sort($value);
             }
 

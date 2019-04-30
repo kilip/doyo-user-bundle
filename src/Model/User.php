@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -11,14 +22,11 @@
 
 namespace Doyo\UserBundle\Model;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * Base class for user
- *
- * @package Doyo\UserBundle\Model
+ * Base class for user.
  */
 abstract class User implements UserInterface
 {
@@ -45,7 +53,7 @@ abstract class User implements UserInterface
     /**
      * The salt to use for hashing.
      *
-     * @var null|string
+     * @var string|null
      */
     protected $salt;
 
@@ -59,7 +67,7 @@ abstract class User implements UserInterface
     /**
      * Plain password. Used for model validation. Must not be persisted.
      *
-     * @var null|string
+     * @var string|null
      */
     protected $plainPassword;
 
@@ -123,7 +131,7 @@ abstract class User implements UserInterface
             return $this;
         }
 
-        if (!in_array($role, $this->roles, true)) {
+        if (!\in_array($role, $this->roles, true)) {
             $this->roles[] = $role;
         }
 
@@ -163,12 +171,8 @@ abstract class User implements UserInterface
     public function eraseCredentials()
     {
         $this->plainPassword = null;
-
     }
 
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
@@ -179,66 +183,45 @@ abstract class User implements UserInterface
      */
     public function hasRole($role)
     {
-        return in_array(strtoupper($role), $this->getRoles(), true);
+        return \in_array(strtoupper($role), $this->getRoles(), true);
     }
 
-    /**
-     * @return string
-     */
     public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * @param string $username
-     * @return User
-     */
-    public function setUsername(string $username): User
+    public function setUsername(string $username): self
     {
         $this->username = $username;
+
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     * @return User
-     */
-    public function setEmail(string $email): User
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @param bool $enabled
-     * @return User
-     */
-    public function setEnabled(bool $enabled): User
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
+
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getSalt(): ?string
     {
         return $this->salt;
@@ -246,101 +229,71 @@ abstract class User implements UserInterface
 
     /**
      * @param string $salt
-     * @return User
      */
-    public function setSalt(?string $salt): User
+    public function setSalt(?string $salt): self
     {
         $this->salt = $salt;
+
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPassword(): string
     {
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     * @return User
-     */
-    public function setPassword(string $password): User
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getPlainPassword(): ?string
     {
         return $this->plainPassword;
     }
 
-    /**
-     * @param string $plainPassword
-     * @return User
-     */
-    public function setPlainPassword(string $plainPassword): User
+    public function setPlainPassword(string $plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getLastLogin(): ?\DateTime
     {
         return $this->lastLogin;
     }
 
-    /**
-     * @param \DateTime|null $lastLogin
-     * @return User
-     */
-    public function setLastLogin(?\DateTime $lastLogin=null): User
+    public function setLastLogin(?\DateTime $lastLogin = null): self
     {
         $this->lastLogin = $lastLogin;
+
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getConfirmationToken(): ?string
     {
         return $this->confirmationToken;
     }
 
-    /**
-     * @param string|null $confirmationToken
-     * @return User
-     */
-    public function setConfirmationToken(?string $confirmationToken): User
+    public function setConfirmationToken(?string $confirmationToken): self
     {
         $this->confirmationToken = $confirmationToken;
+
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPasswordRequestedAt(): ?\DateTime
     {
         return $this->passwordRequestedAt;
     }
 
-    /**
-     * @param \DateTime|null $passwordRequestedAt
-     * @return User
-     */
-    public function setPasswordRequestedAt(?\DateTime $passwordRequestedAt = null): User
+    public function setPasswordRequestedAt(?\DateTime $passwordRequestedAt = null): self
     {
         $this->passwordRequestedAt = $passwordRequestedAt;
+
         return $this;
     }
 
@@ -354,21 +307,20 @@ abstract class User implements UserInterface
 
     /**
      * @param Collection|GroupInterface[] $groups
+     *
      * @return User
      */
     public function setGroups($groups)
     {
         $this->groups = $groups;
+
         return $this;
     }
 
-    /**
-     * @param array $roles
-     * @return User
-     */
-    public function setRoles(array $roles): User
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
         return $this;
     }
 }

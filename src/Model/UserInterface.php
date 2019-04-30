@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the FOSUserBundle package.
  *
  * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
@@ -18,30 +29,23 @@ use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
  */
 interface UserInterface extends BaseUserInterface
 {
-    const ROLE_DEFAULT = 'ROLE_USER';
+    public const ROLE_DEFAULT = 'ROLE_USER';
 
-    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
+    public const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
 
     /**
      * Returns the user unique id.
-     *
-     * @return mixed
      */
     public function getId();
 
     /**
      * Sets the username.
      *
-     * @param string $username
-     *
      * @return static
      */
     public function setUsername(string $username);
 
-
     /**
-     * @param string|null $salt
-     *
      * @return static
      */
     public function setSalt(?string $salt);
@@ -55,8 +59,6 @@ interface UserInterface extends BaseUserInterface
 
     /**
      * Sets the email.
-     *
-     * @param string $email
      *
      * @return static
      */
@@ -72,8 +74,6 @@ interface UserInterface extends BaseUserInterface
     /**
      * Sets the plain password.
      *
-     * @param string $password
-     *
      * @return static
      */
     public function setPlainPassword(string $password);
@@ -81,15 +81,11 @@ interface UserInterface extends BaseUserInterface
     /**
      * Sets the hashed password.
      *
-     * @param string $password
-     *
      * @return static
      */
     public function setPassword(string $password);
 
     /**
-     * @param bool $boolean
-     *
      * @return static
      */
     public function setEnabled(bool $boolean);
@@ -104,16 +100,12 @@ interface UserInterface extends BaseUserInterface
     /**
      * Sets the confirmation token.
      *
-     * @param string|null $confirmationToken
-     *
      * @return static
      */
     public function setConfirmationToken(?string $confirmationToken);
 
     /**
      * Sets the timestamp that the user requested a password reset.
-     *
-     * @param \DateTime|null $date
      *
      * @return static
      */
@@ -130,8 +122,6 @@ interface UserInterface extends BaseUserInterface
 
     /**
      * Sets the last login time.
-     *
-     * @param \DateTime|null $time
      *
      * @return static
      */
@@ -155,8 +145,6 @@ interface UserInterface extends BaseUserInterface
      * Sets the roles of the user.
      *
      * This overwrites any previous roles.
-     *
-     * @param array $roles
      *
      * @return static
      */
