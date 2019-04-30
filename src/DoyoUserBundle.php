@@ -1,0 +1,37 @@
+<?php
+
+/*
+ * This file is part of the Omed package.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Doyo\UserBundle;
+
+use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class DoyoUserBundle extends Bundle
+{
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $this->addRegisterMappingPass($container);
+    }
+
+    private function addRegisterMappingPass(ContainerBuilder $container)
+    {
+        $mappings = array(
+            realpath(__DIR__.'/Resources/config/doctrine-mapping') => 'Doyo\UserBundle\Model',
+        );
+        $container->addCompilerPass(
+            DoctrineOrmMappingsPass::createXmlMappingDriver($mappings,['default'])
+        );
+    }
+
+}

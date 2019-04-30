@@ -1,0 +1,7 @@
+security_controllers:
+    resource: "@DoyoUserBundle/Controller/"
+    type: annotation
+
+login_check:
+    path: /login-check
+    methods: ['POST']

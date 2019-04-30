@@ -1,0 +1,22 @@
+resources:
+    '%doyo.user.user_class%':
+        attributes:
+            order: { username: asc }
+            validation_groups: ['default', 'change-password', 'password']
+            normalization_context: { groups: ['read'] }
+            denormalization_context: { groups: ['write'] }
+
+        collectionOperations:
+            get: { validation_groups: ['default'] }
+            post: { validation_groups: ['default'] }
+            register:
+                route_name: doyo_user.register
+                validation_groups: ['default','password']
+            change_password:
+                route_name: doyo_user.change_password
+                validation_groups: ['password', 'change-password']
+
+        itemOperations:
+            get: { validation_groups: ['default'] }
+            put: { validation_groups: ['default'] }
+            delete: ~
