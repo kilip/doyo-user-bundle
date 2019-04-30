@@ -31,7 +31,12 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
-        }
+        },
+        "bin-dir": "tests/Resources/app/bin",
+        "config-dir": "tests/Resources/app/config",
+        "src-dir": "tests/Resources/app/src",
+        "var-dir": "tests/Resources/app/var",
+        "public-dir": "tests/Resources/app/public"
     },
     "config": {
         "sort-packages": true
