@@ -11,15 +11,6 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the Omed package.
- *
- * (c) Anthonius Munthi <me@itstoni.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Doyo\UserBundle\Util;
 
 use Doyo\UserBundle\Model\UserInterface;
@@ -43,7 +34,7 @@ class PasswordUpdater implements PasswordUpdaterInterface
     {
         $plainPassword = $user->getPlainPassword();
 
-        if (0 === \strlen($plainPassword)) {
+        if (is_null($plainPassword) || 0 === \strlen($plainPassword)) {
             return;
         }
 
