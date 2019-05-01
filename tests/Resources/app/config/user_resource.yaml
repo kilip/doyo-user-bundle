@@ -1,5 +1,0 @@
-resources:
-  App\Entity\User:
-    collectionOperations:
-      get:
-        access_control: is_granted('ROLE_ADMIN')

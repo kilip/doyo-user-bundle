@@ -56,15 +56,15 @@ class DoyoUserExtension extends Extension
 
         $roles = $config['security_roles'];
         $container->setParameter('doyo_user.security.roles', [
-            UserResourceVoter::LIST => $roles['list'],
-            UserResourceVoter::CREATE => $roles['create'],
-            UserResourceVoter::READ => $roles['read'],
-            UserResourceVoter::UPDATE => $roles['update'],
-            UserResourceVoter::DELETE => $roles['delete'],
-            UserResourceVoter::REGISTER => $roles['register'],
+            UserResourceVoter::LIST            => $roles['list'],
+            UserResourceVoter::CREATE          => $roles['create'],
+            UserResourceVoter::READ            => $roles['read'],
+            UserResourceVoter::UPDATE          => $roles['update'],
+            UserResourceVoter::DELETE          => $roles['delete'],
+            UserResourceVoter::REGISTER        => $roles['register'],
             UserResourceVoter::CHANGE_PASSWORD => $roles['change_password'],
-            UserResourceVoter::RESET_PASSWORD => $roles['reset_password'],
-            UserResourceVoter::PROFILE_UPDATE => $roles['update_profile'],
+            UserResourceVoter::RESET_PASSWORD  => $roles['reset_password'],
+            UserResourceVoter::PROFILE_UPDATE  => $roles['update_profile'],
         ]);
     }
 }
