@@ -1,5 +1,7 @@
 resources:
-    '%doyo.user.user_class%':
+    '%doyo_user.user_class%':
+        imports:
+            - {resource: '%kernel.project_dir%/config/doyo_resource.yml'}
         attributes:
             order: { username: asc }
             validation_groups: ['default', 'change-password', 'password']
@@ -7,16 +9,40 @@ resources:
             denormalization_context: { groups: ['write'] }
 
         collectionOperations:
-            get: { validation_groups: ['default'] }
-            post: { validation_groups: ['default'] }
+            # list existing users
+            get:
+                access_control: is_granted('DOYO_USER_LIST')
+                validation_groups: ['default']
+
+            # creates new user
+            post:
+                access_control: is_granted('DOYO_USER_CREATE')
+                validation_groups: ['default']
+
+            # register a new user with an anonymous account
             register:
                 route_name: doyo_user.register
                 validation_groups: ['default','password']
+                access_control: is_granted('DOYO_USER_REGISTER')
+
+            # change password for a user
             change_password:
                 route_name: doyo_user.change_password
+                access_control: is_granted('DOYO_PROFILE_CHANGE_PASSWORD')
                 validation_groups: ['password', 'change-password']
 
+
         itemOperations:
-            get: { validation_groups: ['default'] }
-            put: { validation_groups: ['default'] }
-            delete: ~
+            # read info for existing user
+            get:
+                validation_groups: ['default']
+                access_control: is_granted('DOYO_USER_READ')
+
+            # update existing user
+            put:
+                validation_groups: ['default']
+                access_control: is_granted('DOYO_USER_UPDATE')
+
+            # delete existing user
+            delete:
+                access_control: is_granted('DOYO_USER_DELETE')

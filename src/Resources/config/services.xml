@@ -3,7 +3,6 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <services>
         <service id="doyo_user.util.password_updater" class="Doyo\UserBundle\Util\PasswordUpdater">
             <argument type="service" id="security.encoder_factory"/>
@@ -12,6 +11,27 @@
         <service id="doyo_user.listeners.user" class="Doyo\UserBundle\Listener\UserListener">
             <argument type="service" id="doyo_user.util.password_updater"/>
             <tag name="doctrine.event_subscriber"/>
+        </service>
+
+        <service id="doyo_user.providers.user_item" class="Doyo\UserBundle\DataProvider\UserItemDataProvider">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument>%doyo_user.user_class%</argument>
+            <tag name="api_platform.item_data_provider" priority="2"/>
+        </service>
+
+        <service id="doyo_user.command.generate_jwt_keys" class="Doyo\UserBundle\Command\GenerateJWTKeyCommand">
+            <call method="setPath">
+                <argument>%env(resolve:JWT_PUBLIC_KEY)%</argument>
+                <argument>%env(resolve:JWT_SECRET_KEY)%</argument>
+                <argument>%env(resolve:JWT_PASSPHRASE)%</argument>
+            </call>
+            <tag name="console.command"/>
+        </service>
+
+        <service id="doyo_user.security.user_resource_voter" class="Doyo\UserBundle\Security\Voter\UserResourceVoter">
+            <argument>%doyo_user.security.roles%</argument>
+            <argument type="service" id="security.access.expression_voter"/>
+            <tag name="security.voter" priority="1000"/>
         </service>
     </services>
 

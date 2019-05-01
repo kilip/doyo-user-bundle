@@ -14,4 +14,8 @@ Doyo\UserBundle\Model\User:
             groups: ['read','write']
         plainPassword:
             groups: ['write']
+        salt:
+            groups: ['write']
+        confirmationToken:
+            groups: ['write']
 

@@ -1,10 +1,12 @@
+@createSchema
 Feature: User management
+
+  Background:
+    Given I have logged in as admin
 
   Scenario: Creates new user
     Given I don't have user with username "foo"
-    When I add "Content-Type" header equal to "application/json"
-    And I add "Accept" header equal to "application/json"
-    And I send a "POST" request to "/api/users" with body:
+    And I send a JSON "POST" request to "/api/users" with body:
     """
     {
       "username": "foo",
@@ -31,15 +33,43 @@ Feature: User management
     }
     """
 
+  Scenario: Update user data
+    Given there are 1 dummy users
+    When I send a JSON "PUT" request to "/api/users/dummy1" with body:
+    """
+    {
+      "username": "dummy_changed",
+      "email": "dummy@changed.com",
+      "enabled": true
+    }
+    """
+    Then the response status code should be 200
+    And the JSON should be a superset of:
+    """
+    {
+      "username": "dummy_changed",
+      "email": "dummy@changed.com",
+      "enabled": true
+    }
+    """
+
+  Scenario: Remove existing user
+    Given there are 2 dummy users
+    When I send a JSON "DELETE" request to "/api/users/dummy1" with body:
+    Then the response status code should be 204
+
   @createSchema
   Scenario: Get a collection of users
     Given there are 2 dummy users
-    When I send a "GET" request to "/api/users.json?order[username]=asc"
+    When I send a JSON "GET" request to "/api/users?order[username]=asc"
     Then the response status code should be 200
     And the response should be in JSON
     And the JSON should be a superset of:
     """
     [
+      {
+        "username": "admin"
+      },
       {
         "fullName": "Dummy User #1",
         "username": "dummy1",

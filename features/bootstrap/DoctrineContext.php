@@ -11,15 +11,6 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the Omed package.
- *
- * (c) Anthonius Munthi <me@itstoni.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Doyo\UserBundle\Behat;
 
 use App\Entity\User;
@@ -51,12 +42,18 @@ final class DoctrineContext implements Context
      */
     private $classes;
 
-    public function __construct(ManagerRegistry $doctrine)
+    /**
+     * @var string
+     */
+    private $userClass;
+
+    public function __construct(ManagerRegistry $doctrine, $userClass='App\\Entity\\User')
     {
         $this->doctrine   = $doctrine;
         $this->manager    = $doctrine->getManager();
         $this->schemaTool = new SchemaTool($this->manager);
         $this->classes    = $this->manager->getMetadataFactory()->getAllMetadata();
+        $this->userClass  = $userClass;
     }
 
     /**
@@ -74,15 +71,21 @@ final class DoctrineContext implements Context
      */
     public function thereAreDummyUsers(int $nb)
     {
+        $repo = $this->getUserRepository();
+
         for ($i = 1; $i <= $nb; ++$i) {
-            $dummy = new User();
-            $dummy
-                ->setFullName('Dummy User #'.$i)
-                ->setUsername('dummy'.$i)
-                ->setPlainPassword('dummy'.$i)
-                ->setEmail('dummy'.$i.'@test.com');
-            $this->manager->persist($dummy);
-            $this->manager->flush();
+            $username = 'dummy'.$i;
+            $user     = $repo->findOneByUsername($username);
+            if (null === $user) {
+                $dummy = new User();
+                $dummy
+                    ->setFullName('Dummy User #'.$i)
+                    ->setUsername('dummy'.$i)
+                    ->setPlainPassword('dummy'.$i)
+                    ->setEmail('dummy'.$i.'@test.com');
+                $this->manager->persist($dummy);
+                $this->manager->flush();
+            }
         }
     }
 
@@ -94,12 +97,25 @@ final class DoctrineContext implements Context
     public function thereAreNoUserWithUsername($username)
     {
         $manager = $this->manager;
-        $repo    = $manager->getRepository(User::class);
+        $repo    = $this->getUserRepository();
         $user    = $repo->findByUsername($username);
         if ($user instanceof UserInterface) {
             $manager->remove($user);
             $manager->flush();
             $manager->close();
         }
+    }
+
+    public function getManager(): EntityManagerInterface
+    {
+        return $this->manager;
+    }
+
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    public function getUserRepository()
+    {
+        return $this->getManager()->getRepository($this->userClass);
     }
 }

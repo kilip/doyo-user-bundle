@@ -27,7 +27,7 @@ use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 /**
  * @internal Only for back compatibility. Remove / merge when dropping support for Symfony 4
  */
-interface UserInterface extends BaseUserInterface
+interface UserInterface extends BaseUserInterface, \Serializable
 {
     public const ROLE_DEFAULT = 'ROLE_USER';
 

@@ -13,7 +13,22 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
-       }
+        },
+        "test": [
+            "./console doctrine:database:create -n --env=test",
+            "./console doctrine:schema:update --force --env=test",
+            "./vendor/bin/phpunit",
+            "./vendor/bin/behat -f progress"
+        ],
+        "coverage": [
+            "./console doctrine:database:create -n --env=test",
+            "./console doctrine:schema:update --force --env=test",
+            "./vendor/bin/phpunit --coverage-php=build/cov/coverage-phpunit.cov",
+            "./vendor/bin/behat -f progress -p coverage",
+            "./vendor/bin/phpcov merge --clover build/logs/clover.xml build/cov",
+            "./vendor/bin/phpcov merge --html build/html build/cov"
+        ],
+        "serve": "COMPOSER_PROCESS_TIMEOUT=0 php -S localhost:8000 -t tests/Resources/app/public"
     },
     "autoload": {
         "psr-4": {
@@ -53,9 +68,11 @@
         "behatch/contexts": "^3.2",
         "lexik/jwt-authentication-bundle": "^2.6",
         "matthiasnoback/symfony-dependency-injection-test": "@dev",
+        "phpunit/phpcov": "^5.0",
         "phpunit/phpunit": "^7.5.2",
         "symfony/dotenv": "^4.2",
         "symfony/phpunit-bridge": "^4.2",
+        "symfony/process": "^4.2",
         "symfony/profiler-pack": "^1.0",
         "symfony/translation": "^4.2",
         "symfony/yaml": "^4.2"

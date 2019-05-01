@@ -7,6 +7,9 @@ default:
             doctrine: '@doctrine'
         - Behat\MinkExtension\Context\MinkContext
         - Behatch\Context\RestContext
+        - Doyo\UserBundle\Behat\CustomContext
+        - Doyo\UserBundle\Behat\UserContext:
+            jwtManager: '@lexik_jwt_authentication.jwt_manager'
   extensions:
     'Behat\Symfony2Extension':
       kernel:
@@ -32,3 +35,6 @@ coverage:
             doctrine: '@doctrine'
         - Behat\MinkExtension\Context\MinkContext
         - Behatch\Context\RestContext
+        - Doyo\UserBundle\Behat\CustomContext
+        - Doyo\UserBundle\Behat\UserContext:
+            jwtManager: '@lexik_jwt_authentication.jwt_manager'
