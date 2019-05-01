@@ -1,5 +1,8 @@
 @createSchema
 Feature: User management
+  In order to manage application users
+  As an application Administrator
+  I should able to manage application users
 
   Background:
     Given I have logged in as admin
