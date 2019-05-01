@@ -14,15 +14,18 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "test": [
+        "generate-jwt-keys": "./console doyo-user:generate:jwt-keys",
+        "prepare-test": [
             "./console doctrine:database:create -n --env=test",
-            "./console doctrine:schema:update --force --env=test",
+            "./console doctrine:schema:update --force --env=test"
+        ],
+        "test": [
+            "@prepare-test",
             "./vendor/bin/phpunit",
             "./vendor/bin/behat -f progress"
         ],
         "coverage": [
-            "./console doctrine:database:create -n --env=test",
-            "./console doctrine:schema:update --force --env=test",
+            "@prepare-test",
             "./vendor/bin/phpunit --coverage-php=build/cov/coverage-phpunit.cov",
             "./vendor/bin/behat -f progress -p coverage",
             "./vendor/bin/phpcov merge --clover build/logs/clover.xml build/cov",
