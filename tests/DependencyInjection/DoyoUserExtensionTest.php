@@ -37,21 +37,18 @@ class DoyoUserExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('doyo_user.security.roles');
 
         $container = $this->container;
-        $roles = $container->getParameter('doyo_user.security.roles');
+        $roles     = $container->getParameter('doyo_user.security.roles');
 
-        $this->assertEquals('is_granted("ROLE_USER")',$roles[UserResourceVoter::CREATE]);
-        $this->assertEquals('is_granted("ROLE_USER")',$roles[UserResourceVoter::READ]);
-        $this->assertEquals('is_granted("ROLE_USER")',$roles[UserResourceVoter::UPDATE]);
-        $this->assertEquals('is_granted("ROLE_USER")',$roles[UserResourceVoter::DELETE]);
-        $this->assertEquals('is_granted("ROLE_USER")',$roles[UserResourceVoter::LIST]);
+        $this->assertEquals('is_granted("ROLE_USER")', $roles[UserResourceVoter::CREATE]);
+        $this->assertEquals('is_granted("ROLE_USER")', $roles[UserResourceVoter::READ]);
+        $this->assertEquals('is_granted("ROLE_USER")', $roles[UserResourceVoter::UPDATE]);
+        $this->assertEquals('is_granted("ROLE_USER")', $roles[UserResourceVoter::DELETE]);
+        $this->assertEquals('is_granted("ROLE_USER")', $roles[UserResourceVoter::LIST]);
 
-        $this->assertEquals('is_granted("IS_AUTHENTICATED_ANONYMOUSLY")',$roles[UserResourceVoter::REGISTER]);
-        $this->assertEquals('is_granted("IS_AUTHENTICATED_ANONYMOUSLY")',$roles[UserResourceVoter::RESET_PASSWORD]);
+        $this->assertEquals('is_granted("IS_AUTHENTICATED_ANONYMOUSLY")', $roles[UserResourceVoter::REGISTER]);
+        $this->assertEquals('is_granted("IS_AUTHENTICATED_ANONYMOUSLY")', $roles[UserResourceVoter::RESET_PASSWORD]);
         $this->assertEquals('is_granted("ROLE_USER") and object.owner==user', $roles[UserResourceVoter::CHANGE_PASSWORD]);
         $this->assertEquals('is_granted("ROLE_USER") and object.owner==user', $roles[UserResourceVoter::PROFILE_UPDATE]);
-
-
-
     }
 
     public function testErrorWhenUserClassNotSet()

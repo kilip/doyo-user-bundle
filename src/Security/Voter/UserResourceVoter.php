@@ -38,9 +38,9 @@ class UserResourceVoter extends Voter
     public const LIST   = 'DOYO_USER_LIST';
 
     public const CHANGE_PASSWORD = 'DOYO_PROFILE_CHANGE_PASSWORD';
-    public const PROFILE_UPDATE = 'DOYO_PROFILE_UPDATE';
+    public const PROFILE_UPDATE  = 'DOYO_PROFILE_UPDATE';
 
-    public const REGISTER = 'DOYO_USER_REGISTER';
+    public const REGISTER       = 'DOYO_USER_REGISTER';
     public const RESET_PASSWORD = 'DOYO_PROFILE_RESET_PASSWORD';
 
     private $roles;
@@ -49,8 +49,6 @@ class UserResourceVoter extends Voter
 
     /**
      * UserResourceVoter constructor.
-     * @param array $roles
-     * @param ExpressionVoter $expressionVoter
      */
     public function __construct(
         array $roles,
@@ -84,7 +82,7 @@ class UserResourceVoter extends Voter
             return false;
         }
 
-        $expr = new Expression($this->roles[$attribute]);
+        $expr       = new Expression($this->roles[$attribute]);
         $voteResult = $this->expressionVoter->vote($token, $subject, [$expr]);
 
         return VoterInterface::ACCESS_GRANTED === $voteResult;
