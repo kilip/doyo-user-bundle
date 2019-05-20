@@ -1,0 +1,124 @@
+<?php return [PHP_INT_MAX, static function () {
+
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata')),
+        ],
+        null,
+        [
+            'ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata' => [
+                'shortName' => [
+                    'User',
+                ],
+                'description' => [
+                    'Class User.',
+                ],
+                'itemOperations' => [
+                    [
+                        'get' => [
+                            'validation_groups' => [
+                                'default',
+                            ],
+                            'access_control' => 'is_granted(\'DOYO_USER_READ\')',
+                            'input' => null,
+                            'output' => null,
+                            'method' => 'GET',
+                        ],
+                        'put' => [
+                            'validation_groups' => [
+                                'default',
+                            ],
+                            'access_control' => 'is_granted(\'DOYO_USER_UPDATE\')',
+                            'input' => null,
+                            'output' => null,
+                            'method' => 'PUT',
+                        ],
+                        'delete' => [
+                            'access_control' => 'is_granted(\'DOYO_USER_DELETE\')',
+                            'input' => null,
+                            'output' => null,
+                            'method' => 'DELETE',
+                        ],
+                    ],
+                ],
+                'collectionOperations' => [
+                    [
+                        'get' => [
+                            'access_control' => 'is_granted(\'DOYO_USER_LIST\')',
+                            'validation_groups' => [
+                                'default',
+                            ],
+                            'input' => null,
+                            'output' => null,
+                            'method' => 'GET',
+                        ],
+                        'post' => [
+                            'access_control' => 'is_granted(\'DOYO_USER_CREATE\')',
+                            'validation_groups' => [
+                                'default',
+                            ],
+                            'input' => null,
+                            'output' => null,
+                            'method' => 'POST',
+                        ],
+                        'register' => [
+                            'route_name' => 'doyo_user.register',
+                            'validation_groups' => [
+                                'default',
+                                'password',
+                            ],
+                            'access_control' => 'is_granted(\'DOYO_USER_REGISTER\')',
+                            'input' => null,
+                            'output' => null,
+                        ],
+                        'change_password' => [
+                            'route_name' => 'doyo_user.change_password',
+                            'access_control' => 'is_granted(\'DOYO_PROFILE_CHANGE_PASSWORD\')',
+                            'validation_groups' => [
+                                'password',
+                                'change-password',
+                            ],
+                            'input' => null,
+                            'output' => null,
+                        ],
+                    ],
+                ],
+                'graphql' => [
+                    [
+                        'query' => [],
+                        'delete' => [],
+                        'update' => [],
+                        'create' => [],
+                    ],
+                ],
+                'attributes' => [
+                    [
+                        'order' => [
+                            'username' => 'asc',
+                        ],
+                        'validation_groups' => [
+                            'default',
+                            'change-password',
+                            'password',
+                        ],
+                        'normalization_context' => [
+                            'groups' => [
+                                'read',
+                            ],
+                        ],
+                        'denormalization_context' => [
+                            'groups' => [
+                                'write',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
+                    ],
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+
+}];

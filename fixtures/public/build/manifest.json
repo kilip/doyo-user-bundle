@@ -1,0 +1,7 @@
+{
+  "build/runtime.js": "http://localhost:8080/build/runtime.js",
+  "build/vendors~vue.js": "http://localhost:8080/build/vendors~vue.js",
+  "build/vue.css": "http://localhost:8080/build/vue.css",
+  "build/vue.js": "http://localhost:8080/build/vue.js",
+  "build/vendors~vue.css": "http://localhost:8080/build/vendors~vue.css"
+}

@@ -100,9 +100,10 @@ interface UserInterface extends BaseUserInterface, \Serializable
     /**
      * Sets the confirmation token.
      *
+     * @param string $confirmationToken
      * @return static
      */
-    public function setConfirmationToken(?string $confirmationToken);
+    public function setConfirmationToken(string $confirmationToken);
 
     /**
      * Sets the timestamp that the user requested a password reset.
@@ -110,6 +111,11 @@ interface UserInterface extends BaseUserInterface, \Serializable
      * @return static
      */
     public function setPasswordRequestedAt(?\DateTime $date = null);
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPasswordRequestedAt():?\DateTime;
 
     /**
      * Checks whether the password reset request has expired.

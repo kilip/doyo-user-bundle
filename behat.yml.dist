@@ -1,4 +1,6 @@
 default:
+  formatters:
+    progress: true
   suites:
     default:
       contexts:
@@ -8,16 +10,20 @@ default:
         - Behat\MinkExtension\Context\MinkContext
         - Behatch\Context\RestContext
         - Doyo\UserBundle\Behat\CustomContext
+        - Doyo\UserBundle\Behat\MailContext
         - Doyo\UserBundle\Behat\UserContext:
             jwtManager: '@lexik_jwt_authentication.jwt_manager'
+            userManager: '@doyo_user.service.user_manager'
+            retryTtl: '%%doyo_user.config.retry_ttl%%'
+            tokenGenerator: '@doyo_user.util.token_generator'
   extensions:
     'Behat\Symfony2Extension':
       kernel:
         env: 'test'
         debug: 'true'
         class: App\Kernel
-        path: 'tests/Resources/app/src/Kernel.php'
-        bootstrap: 'tests/Resources/app/config/bootstrap.php'
+        path: 'fixtures/src/Kernel.php'
+        bootstrap: 'fixtures/config/bootstrap.php'
     'Behat\MinkExtension':
       base_url: 'http://example.com/'
       sessions:
@@ -36,5 +42,8 @@ coverage:
         - Behat\MinkExtension\Context\MinkContext
         - Behatch\Context\RestContext
         - Doyo\UserBundle\Behat\CustomContext
+        - Doyo\UserBundle\Behat\MailContext
         - Doyo\UserBundle\Behat\UserContext:
             jwtManager: '@lexik_jwt_authentication.jwt_manager'
+            userManager: '@doyo_user.service.user_manager'
+            retryTtl: '%%doyo_user.config.retry_ttl%%'

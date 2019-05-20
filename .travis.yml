@@ -24,7 +24,7 @@ install:
   - composer generate-jwt-keys
 
 script:
-  - if [[ $COVERAGE = yes ]]; then composer coverage; else composer test; fi;
+  - composer test
 
 after_script:
   # process coverage

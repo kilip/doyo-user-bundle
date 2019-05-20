@@ -1,0 +1,17 @@
+reset_password:
+  user_not_found: "A username/email '%username_or_email%' not found."
+  not_expired: "An email contain reset password link already sent to '%email%'"
+  check_email: "Please check your mail at '%email%' to continue reset password"
+  email:
+    subject: 'Reset Password for %username%'
+    message: |
+      Hello %username%!
+
+
+      You (or someone else) has requested to reset your password on %date%.
+      This password reset request is valid for the next 24 hours.
+
+      Here's a link to reset your password %confirmationUrl%
+
+      Regards,
+      The Team.

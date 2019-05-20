@@ -4,6 +4,13 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+
+        <defaults autoconfigure="true" autowire="true" public="false"/>
+
+        <prototype namespace="Doyo\UserBundle\Controller\" resource="%doyo_user_bundle_path%/src/Controller">
+            <tag name="controller.service_arguments"/>
+        </prototype>
+
         <service id="doyo_user.util.password_updater" class="Doyo\UserBundle\Util\PasswordUpdater">
             <argument type="service" id="security.encoder_factory"/>
         </service>
@@ -33,6 +40,39 @@
             <argument type="service" id="security.access.expression_voter"/>
             <tag name="security.voter" priority="1000"/>
         </service>
+
+        <service id="doyo_user.service.mailer" class="Doyo\UserBundle\Mailer\Mailer">
+            <argument type="service" id="mailer"/>
+            <argument type="service" id="router"/>
+            <argument type="service" id="translator"/>
+            <argument>%doyo_user.mail_confirmation.reset_password_route%</argument>
+            <argument>%doyo_user.mail_confirmation.register_route%</argument>
+        </service>
+
+
+        <service id="doyo_user.service.user_manager" class="Doyo\UserBundle\Manager\UserManager">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument>%doyo_user.user_class%</argument>
+        </service>
+
+        <service
+                id="doyo_user.security.reset_password"
+                class="Doyo\UserBundle\Security\ResetPasswordService"
+        >
+            <argument type="service" id="doyo_user.service.user_manager"/>
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="doyo_user.util.token_generator"/>
+            <argument type="service" id="doyo_user.service.mailer"/>
+            <argument type="service" id="translator"/>
+            <argument>%doyo_user.config.retry_ttl%</argument>
+        </service>
+
+        <service class="Doyo\UserBundle\Util\TokenGenerator" id="doyo_user.util.token_generator"/>
+
+
+        <service id="Doyo\UserBundle\Security\ResetPasswordService" alias="doyo_user.security.reset_password"/>
+
+
     </services>
 
 </container>

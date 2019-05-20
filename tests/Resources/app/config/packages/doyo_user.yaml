@@ -1,3 +1,0 @@
-doyo_user:
-  security_roles:
-    list: is_granted("ROLE_ADMIN")

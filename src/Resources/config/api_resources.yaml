@@ -1,5 +1,7 @@
 resources:
     '%doyo_user.user_class%':
+        shortname: 'User'
+        description: User api
         imports:
             - {resource: '%kernel.project_dir%/config/doyo_resource.yml'}
         attributes:
@@ -46,3 +48,13 @@ resources:
             # delete existing user
             delete:
                 access_control: is_granted('DOYO_USER_DELETE')
+
+            reset_password:
+                description: "Hello World"
+                method: POST
+                access_control: is_granted("IS_AUTHENTICATED_ANONYMOUSLY")
+                path: /reset-password/foo/{token}
+                normalization_context: {groups: ['password']}
+                controller: Doyo\UserBundle\Controller\ResetPasswordController
+                defaults:
+                    method: testNewPassword

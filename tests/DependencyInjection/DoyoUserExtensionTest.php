@@ -20,6 +20,10 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 class DoyoUserExtensionTest extends AbstractExtensionTestCase
 {
+    private $defaultConfig = [
+        'user_class' => 'App\\Entity\\User',
+    ];
+
     protected function getContainerExtensions()
     {
         return [
@@ -27,7 +31,7 @@ class DoyoUserExtensionTest extends AbstractExtensionTestCase
         ];
     }
 
-    public function testDefault()
+    public function testSecurityRolesDefault()
     {
         $this->load([
             'user_class' => 'App\\Entity\\User',
@@ -51,11 +55,15 @@ class DoyoUserExtensionTest extends AbstractExtensionTestCase
         $this->assertEquals('is_granted("ROLE_USER") and object.owner==user', $roles[UserResourceVoter::PROFILE_UPDATE]);
     }
 
-    public function testErrorWhenUserClassNotSet()
+    public function testGlobalConfig()
     {
-        $this->expectException(InvalidConfigurationException::class);
+        $this->load($this->defaultConfig);
+        $container = $this->container;
 
-        $this->load([]);
+        $this->assertTrue($container->hasParameter('doyo_user.config.retry_ttl'));
+        $this->assertTrue($container->hasParameter('doyo_user.config.token_ttl'));
+        $this->assertTrue($container->hasParameter('doyo_user.mail_confirmation.reset_password_route'));
+        $this->assertTrue($container->hasParameter('doyo_user.mail_confirmation.register_route'));
     }
 
     public function testErrorWhenClassNotExists()
