@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Symfony\Component\Routing\Matcher\Dumper\PhpMatcherTrait;
 use Symfony\Component\Routing\RequestContext;
 
@@ -13,19 +24,19 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
 
     public function __construct(RequestContext $context)
     {
-        $this->context = $context;
+        $this->context      = $context;
         $this->staticRoutes = [
-            '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
-            '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
-            '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
-            '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
-            '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-            '/change-password' => [[['_route' => 'doyo_user.change_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ProfileController::changePassword'], null, ['POST' => 0], null, false, false, null]],
-            '/register' => [[['_route' => 'doyo_user.register', '_controller' => 'Doyo\\UserBundle\\Controller\\RegisterController::register'], null, ['POST' => 0], null, false, false, null]],
-            '/reset-password/request' => [[['_route' => 'doyo_user_reset_password_request', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::request'], null, ['POST' => 0], null, false, false, null]],
+            '/_profiler'                   => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
+            '/_profiler/search'            => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
+            '/_profiler/search_bar'        => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
+            '/_profiler/phpinfo'           => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
+            '/_profiler/open'              => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+            '/change-password'             => [[['_route' => 'doyo_user.change_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ProfileController::changePassword'], null, ['POST' => 0], null, false, false, null]],
+            '/register'                    => [[['_route' => 'doyo_user.register', '_controller' => 'Doyo\\UserBundle\\Controller\\RegisterController::register'], null, ['POST' => 0], null, false, false, null]],
+            '/reset-password/request'      => [[['_route' => 'doyo_user_reset_password_request', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::request'], null, ['POST' => 0], null, false, false, null]],
             '/reset-password/new-password' => [[['_route' => 'doyo_user_new_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::newPassword'], null, null, null, false, false, null]],
-            '/login-check' => [[['_route' => 'login_check'], null, ['POST' => 0], null, false, false, null]],
-            '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
+            '/login-check'                 => [[['_route' => 'login_check'], null, ['POST' => 0], null, false, false, null]],
+            '/'                            => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
             0 => '{^(?'
@@ -66,8 +77,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
-            38 => [[['_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-            57 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+            38  => [[['_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+            57  => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
             102 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
             116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
             136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],

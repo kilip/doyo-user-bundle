@@ -1,21 +1,20 @@
 Doyo\UserBundle\Model\User:
-    attributes:
-        username:
-            groups: ['read','write']
-        email:
-            groups: ['read','write']
-        enabled:
-            groups: ['read','write']
-        lastLogin:
-            groups: ['read','write']
-        groups:
-            groups: ['read','write']
-        roles:
-            groups: ['read','write']
-        plainPassword:
-            groups: ['write']
-        salt:
-            groups: ['write']
-        confirmationToken:
-            groups: ['write']
-
+  attributes:
+    username:
+      groups: ["read", "write"]
+    email:
+      groups: ["read", "write"]
+    enabled:
+      groups: ["read", "write"]
+    lastLogin:
+      groups: ["read", "write"]
+    groups:
+      groups: ["read", "write"]
+    roles:
+      groups: ["read", "write"]
+    plainPassword:
+      groups: ["write"]
+    salt:
+      groups: ["write"]
+    confirmationToken:
+      groups: ["write"]

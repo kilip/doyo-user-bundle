@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Symfony\Component\Routing\Matcher\Dumper\PhpMatcherTrait;
 use Symfony\Component\Routing\RequestContext;
 
@@ -13,14 +24,14 @@ class srcApp_KernelTestDebugContainerUrlMatcher extends Symfony\Bundle\Framework
 
     public function __construct(RequestContext $context)
     {
-        $this->context = $context;
+        $this->context      = $context;
         $this->staticRoutes = [
-            '/change-password' => [[['_route' => 'doyo_user.change_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ProfileController::changePassword'], null, ['POST' => 0], null, false, false, null]],
-            '/register' => [[['_route' => 'doyo_user.register', '_controller' => 'Doyo\\UserBundle\\Controller\\RegisterController::register'], null, ['POST' => 0], null, false, false, null]],
-            '/reset-password/request' => [[['_route' => 'doyo_user_reset_password_request', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::request'], null, ['POST' => 0], null, false, false, null]],
+            '/change-password'             => [[['_route' => 'doyo_user.change_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ProfileController::changePassword'], null, ['POST' => 0], null, false, false, null]],
+            '/register'                    => [[['_route' => 'doyo_user.register', '_controller' => 'Doyo\\UserBundle\\Controller\\RegisterController::register'], null, ['POST' => 0], null, false, false, null]],
+            '/reset-password/request'      => [[['_route' => 'doyo_user_reset_password_request', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::request'], null, ['POST' => 0], null, false, false, null]],
             '/reset-password/new-password' => [[['_route' => 'doyo_user_new_password', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::newPassword'], null, null, null, false, false, null]],
-            '/login-check' => [[['_route' => 'login_check'], null, ['POST' => 0], null, false, false, null]],
-            '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
+            '/login-check'                 => [[['_route' => 'login_check'], null, ['POST' => 0], null, false, false, null]],
+            '/'                            => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
             0 => '{^(?'
@@ -45,8 +56,8 @@ class srcApp_KernelTestDebugContainerUrlMatcher extends Symfony\Bundle\Framework
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
-            49 => [[['_route' => 'doyo_user_reset_password_confirm', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::confirmResetPassword'], ['token'], null, null, false, true, null]],
-            91 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
+            49  => [[['_route' => 'doyo_user_reset_password_confirm', '_controller' => 'Doyo\\UserBundle\\Controller\\ResetPasswordController::confirmResetPassword'], ['token'], null, null, false, true, null]],
+            91  => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
             121 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
             157 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
             191 => [

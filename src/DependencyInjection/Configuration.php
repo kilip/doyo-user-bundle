@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Doyo\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -33,7 +32,7 @@ final class Configuration implements ConfigurationInterface
             $treeBuilder = new TreeBuilder();
             $rootNode    = $treeBuilder->root('doyo_user');
         }
-        //@codeCoverageIgnoreEnd
+        /** @codeCoverageIgnoreEnd */
 
         // start children render node
         $childNode = $rootNode->children();
@@ -44,7 +43,6 @@ final class Configuration implements ConfigurationInterface
                 ->cannotBeEmpty()
                 ->isRequired()
             ->end();
-
 
         $this->generateSecurityRolesConfig($childNode);
         $this->generateGlobalConfig($childNode);
@@ -69,8 +67,7 @@ final class Configuration implements ConfigurationInterface
             ->scalarNode('token_ttl')
                 ->info('Confirmation token expired')
                 ->defaultValue(86400)
-            ->end()
-        ;
+            ->end();
         $children->end();
         $configRoot->end();
 
@@ -85,8 +82,7 @@ final class Configuration implements ConfigurationInterface
                     ->info('A route name to be included in new user email confirmation')
                     ->defaultValue('doyo_user_register_confirm')
                 ->end()
-            ->end()
-        ;
+            ->end();
     }
 
     private function generateSecurityRolesConfig(NodeBuilder $node)
@@ -132,7 +128,6 @@ final class Configuration implements ConfigurationInterface
                         ->defaultValue('is_granted("IS_AUTHENTICATED_ANONYMOUSLY")')
                     ->end()
                 ->end()
-            ->end()
-        ;
+            ->end();
     }
 }

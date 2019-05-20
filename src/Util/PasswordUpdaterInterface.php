@@ -18,9 +18,7 @@ use Doyo\UserBundle\Model\UserInterface;
 interface PasswordUpdaterInterface
 {
     /**
-     * Updates the hashed password in the user when there is a new password
-     * @param UserInterface $user
-     * @return mixed
+     * Updates the hashed password in the user when there is a new password.
      */
     public function hashPassword(UserInterface $user);
 }

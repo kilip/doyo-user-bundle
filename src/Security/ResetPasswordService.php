@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -11,17 +22,17 @@
 
 namespace Doyo\UserBundle\Security;
 
+use Doyo\UserBundle\DoyoUserConstant;
+use Doyo\UserBundle\Event\UserEvent;
 use Doyo\UserBundle\Mailer\MailerInterface;
 use Doyo\UserBundle\Manager\UserManagerInterface;
 use Doyo\UserBundle\Model\UserInterface;
-use Doyo\UserBundle\DoyoUserConstant;
 use Doyo\UserBundle\Util\TokenGeneratorInterface;
-use Doyo\UserBundle\Event\UserEvent;
-use Symfony\Component\HttpFoundation\Request;
 use spec\Doyo\UserBundle\Security\Translator;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ResetPasswordService
@@ -63,43 +74,41 @@ class ResetPasswordService
         MailerInterface $mailer,
         TranslatorInterface $translator,
         $retryTtl
-    )
-    {
-        $this->manager = $manager;
-        $this->dispatcher = $dispatcher;
+    ) {
+        $this->manager        = $manager;
+        $this->dispatcher     = $dispatcher;
         $this->tokenGenerator = $tokenGenerator;
-        $this->mailer = $mailer;
-        $this->translator = $translator;
-        $this->retryTtl = $retryTtl;
+        $this->mailer         = $mailer;
+        $this->translator     = $translator;
+        $this->retryTtl       = $retryTtl;
     }
 
     /**
-     * @param string|null $usernameOrEmail
-     * @return  JsonResponse
-     *
      * @throws \Exception
+     *
+     * @return JsonResponse
      */
     public function request(Request $request)
     {
-        $json = json_decode($request->getContent(),true);
-        $usernameOrEmail = isset($json['username']) ? $json['username']:null;
+        $json            = json_decode($request->getContent(), true);
+        $usernameOrEmail = $json['username'] ?? null;
 
-        $manager = $this->manager;
+        $manager    = $this->manager;
         $translator = $this->translator;
         $statusCode = 404;
-        $message = $translator->trans(
+        $message    = $translator->trans(
             'reset_password.user_not_found',
             ['%username_or_email%' => $usernameOrEmail],
             'DoyoUserBundle'
         );
-        $user = null;
+        $user     = null;
         $response = null;
-        $response = new JsonResponse(['message' => $message ],$statusCode);
-        if(!is_null($usernameOrEmail)){
+        $response = new JsonResponse(['message' => $message], $statusCode);
+        if (null !== $usernameOrEmail) {
             $user = $manager->find($usernameOrEmail);
         }
 
-        if($user instanceof UserInterface){
+        if ($user instanceof UserInterface) {
             $this->doRequestPassword($user, $response);
         }
 
@@ -108,57 +117,57 @@ class ResetPasswordService
 
     public function newPassword(Request $request)
     {
-        $json = $this->decodeJson($request);
-        $manager = $this->manager;
+        $json     = $this->decodeJson($request);
+        $manager  = $this->manager;
         $response = new JsonResponse();
         $retryTtl = $this->retryTtl;
 
         $user = $manager->findByToken($json['token']);
-        if(!$user instanceof UserInterface){
+        if (!$user instanceof UserInterface) {
             $response->setStatusCode(404);
             $response->setData([
                 'message' => 'User not found',
                 'expired' => false,
             ]);
-        }elseif(!$user->isPasswordRequestNonExpired($retryTtl)){
+        } elseif (!$user->isPasswordRequestNonExpired($retryTtl)) {
             $user->setPlainPassword($json['password']);
             $manager->update($user);
             $response->setStatusCode(201);
             $response->setData([
-                "message" => "You can login with your new password now",
+                'message' => 'You can login with your new password now',
                 'expired' => false,
             ]);
-        }elseif($user->isPasswordRequestNonExpired($retryTtl)){
+        } elseif ($user->isPasswordRequestNonExpired($retryTtl)) {
             $response->setStatusCode(405);
             $response->setData([
                 'message' => 'Token is expired. Please create a new reset password request again',
                 'expired' => true,
             ]);
         }
+
         return $response;
     }
 
     private function decodeJson(Request $request)
     {
-        $json = json_decode($request->getContent(),true);
-        return $json;
+        return json_decode($request->getContent(), true);
     }
 
     private function doRequestPassword(UserInterface $user, JsonResponse $response)
     {
-        $manager = $this->manager;
+        $manager        = $this->manager;
         $tokenGenerator = $this->tokenGenerator;
-        $retryTtl = $this->retryTtl;
-        $dispatcher = $this->dispatcher;
-        $mailer = $this->mailer;
-        $translator = $this->translator;
-        $message = 'reset_password.check_email';
+        $retryTtl       = $this->retryTtl;
+        $dispatcher     = $this->dispatcher;
+        $mailer         = $this->mailer;
+        $translator     = $this->translator;
+        $message        = 'reset_password.check_email';
 
-        if(!$user->isPasswordRequestNonExpired($retryTtl)){
+        if (!$user->isPasswordRequestNonExpired($retryTtl)) {
             $event = new UserEvent($user);
 
             $user->setConfirmationToken($tokenGenerator->generateToken());
-            $dispatcher->dispatch(DoyoUserConstant::RESET_PASSWORD_REQUEST,$event);
+            $dispatcher->dispatch(DoyoUserConstant::RESET_PASSWORD_REQUEST, $event);
             $mailer->sendResetPasswordEmailMessage($user);
 
             // updating user info
@@ -166,13 +175,13 @@ class ResetPasswordService
             $manager->update($user);
 
             $response->setStatusCode(200);
-        }else{
+        } else {
             // user already request to reset password
             $response->setStatusCode(406);
             $message = 'reset_password.not_expired';
         }
 
-        $message = $translator->trans($message,['%email%' => $user->getEmail()], 'DoyoUserBundle');
+        $message = $translator->trans($message, ['%email%' => $user->getEmail()], 'DoyoUserBundle');
         $response->setData(['message' => $message]);
     }
 }

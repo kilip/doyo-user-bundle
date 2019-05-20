@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -18,13 +29,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class ResetPasswordController
- *
- * @package Doyo\UserBundle\Controller
+ * Class ResetPasswordController.
  */
 class ResetPasswordController
 {
-
     /**
      * @Route(
      *     name="doyo_user_reset_password_confirm",
@@ -42,10 +50,9 @@ class ResetPasswordController
      *     methods={"POST"}
      * )
      *
-     * @param Request $request
-     * @param ResetPasswordService $service
-     * @return JsonResponse
      * @throws \Exception
+     *
+     * @return JsonResponse
      */
     public function request(Request $request, ResetPasswordService $service)
     {
@@ -57,8 +64,6 @@ class ResetPasswordController
      *     name="doyo_user_new_password",
      *     path="/reset-password/new-password",
      * )
-     * @param Request $request
-     * @param ResetPasswordService $service
      *
      * @return JsonResponse
      */
@@ -67,9 +72,6 @@ class ResetPasswordController
         return $service->newPassword($request);
     }
 
-    /**
-     * @param UserInterface $user
-     */
     public function testNewPassword(UserInterface $user)
     {
         return $user;

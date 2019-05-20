@@ -1,16 +1,20 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
 use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
-use Twig\Template;
 
 /* @WebProfiler/Collector/time.html.twig */
 class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072acb7e9 extends \Twig\Template
@@ -24,9 +28,9 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'toolbar' => [$this, 'block_toolbar'],
-            'menu' => [$this, 'block_menu'],
-            'panel' => [$this, 'block_panel'],
+            'toolbar'      => [$this, 'block_toolbar'],
+            'menu'         => [$this, 'block_menu'],
+            'panel'        => [$this, 'block_panel'],
             'panelContent' => [$this, 'block_panelContent'],
         ];
     }
@@ -34,383 +38,375 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
     protected function doGetParent(array $context)
     {
         // line 1
-        return "@WebProfiler/Profiler/layout.html.twig";
+        return '@WebProfiler/Profiler/layout.html.twig';
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/time.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Collector/time.html.twig'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/time.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Collector/time.html.twig'));
 
         // line 3
-        $context["helper"] = $this;
+        $context['helper'] = $this;
         // line 5
-        if ( !(isset($context["colors"]) || array_key_exists("colors", $context))) {
+        if (!(isset($context['colors']) || array_key_exists('colors', $context))) {
             // line 6
-            $context["colors"] = ["default" => "#777", "section" => "#999", "event_listener" => "#00B8F5", "template" => "#66CC00", "doctrine" => "#FF6633", "messenger.middleware" => "#BDB81E", "controller.argument_value_resolver" => "#8c5de6"];
+            $context['colors'] = ['default' => '#777', 'section' => '#999', 'event_listener' => '#00B8F5', 'template' => '#66CC00', 'doctrine' => '#FF6633', 'messenger.middleware' => '#BDB81E', 'controller.argument_value_resolver' => '#8c5de6'];
         }
         // line 1
-        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "@WebProfiler/Collector/time.html.twig", 1);
+        $this->parent = $this->loadTemplate('@WebProfiler/Profiler/layout.html.twig', '@WebProfiler/Collector/time.html.twig', 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
-        
+
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
-        
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
     }
 
     // line 18
     public function block_toolbar($context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "toolbar"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'toolbar'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "toolbar"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'toolbar'));
 
         // line 19
-        echo "    ";
-        $context["has_time_events"] = (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 19, $this->source); })()), "events", [], "any", false, false, false, 19)) > 0);
+        echo '    ';
+        $context['has_time_events'] = (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 19, $this->source); })()), 'events', [], 'any', false, false, false, 19)) > 0);
         // line 20
-        echo "
-    ";
+        echo '
+    ';
         // line 21
-        $context["total_time"] = (((isset($context["has_time_events"]) || array_key_exists("has_time_events", $context) ? $context["has_time_events"] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 21, $this->source); })())) ? (sprintf("%.0f", twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 21, $this->source); })()), "duration", [], "any", false, false, false, 21))) : ("n/a"));
+        $context['total_time'] = (((isset($context['has_time_events']) || array_key_exists('has_time_events', $context) ? $context['has_time_events'] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 21, $this->source); })())) ? (sprintf('%.0f', twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 21, $this->source); })()), 'duration', [], 'any', false, false, false, 21))) : ('n/a'));
         // line 22
-        echo "    ";
-        $context["initialization_time"] = ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 22, $this->source); })()), "events", [], "any", false, false, false, 22))) ? (sprintf("%.0f", twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 22, $this->source); })()), "inittime", [], "any", false, false, false, 22))) : ("n/a"));
+        echo '    ';
+        $context['initialization_time'] = ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 22, $this->source); })()), 'events', [], 'any', false, false, false, 22))) ? (sprintf('%.0f', twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 22, $this->source); })()), 'inittime', [], 'any', false, false, false, 22))) : ('n/a'));
         // line 23
-        echo "    ";
-        $context["status_color"] = ((((isset($context["has_time_events"]) || array_key_exists("has_time_events", $context) ? $context["has_time_events"] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 23, $this->source); })()) && (twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 23, $this->source); })()), "duration", [], "any", false, false, false, 23) > 1000))) ? ("yellow") : (""));
+        echo '    ';
+        $context['status_color'] = ((((isset($context['has_time_events']) || array_key_exists('has_time_events', $context) ? $context['has_time_events'] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 23, $this->source); })()) && (twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 23, $this->source); })()), 'duration', [], 'any', false, false, false, 23) > 1000))) ? ('yellow') : (''));
         // line 24
-        echo "
-    ";
+        echo '
+    ';
         // line 25
         ob_start();
         // line 26
-        echo "        ";
-        echo twig_include($this->env, $context, "@WebProfiler/Icon/time.svg");
-        echo "
-        <span class=\"sf-toolbar-value\">";
+        echo '        ';
+        echo twig_include($this->env, $context, '@WebProfiler/Icon/time.svg');
+        echo '
+        <span class="sf-toolbar-value">';
         // line 27
-        echo twig_escape_filter($this->env, (isset($context["total_time"]) || array_key_exists("total_time", $context) ? $context["total_time"] : (function () { throw new RuntimeError('Variable "total_time" does not exist.', 27, $this->source); })()), "html", null, true);
-        echo "</span>
-        <span class=\"sf-toolbar-label\">ms</span>
-    ";
-        $context["icon"] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+        echo twig_escape_filter($this->env, (isset($context['total_time']) || array_key_exists('total_time', $context) ? $context['total_time'] : (function () { throw new RuntimeError('Variable "total_time" does not exist.', 27, $this->source); })()), 'html', null, true);
+        echo '</span>
+        <span class="sf-toolbar-label">ms</span>
+    ';
+        $context['icon'] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
         // line 30
-        echo "
-    ";
+        echo '
+    ';
         // line 31
         ob_start();
         // line 32
-        echo "        <div class=\"sf-toolbar-info-piece\">
+        echo '        <div class="sf-toolbar-info-piece">
             <b>Total time</b>
-            <span>";
+            <span>';
         // line 34
-        echo twig_escape_filter($this->env, (isset($context["total_time"]) || array_key_exists("total_time", $context) ? $context["total_time"] : (function () { throw new RuntimeError('Variable "total_time" does not exist.', 34, $this->source); })()), "html", null, true);
-        echo " ms</span>
+        echo twig_escape_filter($this->env, (isset($context['total_time']) || array_key_exists('total_time', $context) ? $context['total_time'] : (function () { throw new RuntimeError('Variable "total_time" does not exist.', 34, $this->source); })()), 'html', null, true);
+        echo ' ms</span>
         </div>
-        <div class=\"sf-toolbar-info-piece\">
+        <div class="sf-toolbar-info-piece">
             <b>Initialization time</b>
-            <span>";
+            <span>';
         // line 38
-        echo twig_escape_filter($this->env, (isset($context["initialization_time"]) || array_key_exists("initialization_time", $context) ? $context["initialization_time"] : (function () { throw new RuntimeError('Variable "initialization_time" does not exist.', 38, $this->source); })()), "html", null, true);
-        echo " ms</span>
+        echo twig_escape_filter($this->env, (isset($context['initialization_time']) || array_key_exists('initialization_time', $context) ? $context['initialization_time'] : (function () { throw new RuntimeError('Variable "initialization_time" does not exist.', 38, $this->source); })()), 'html', null, true);
+        echo ' ms</span>
         </div>
-    ";
-        $context["text"] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+    ';
+        $context['text'] = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
         // line 41
-        echo "
-    ";
+        echo '
+    ';
         // line 42
-        echo twig_include($this->env, $context, "@WebProfiler/Profiler/toolbar_item.html.twig", ["link" => (isset($context["profiler_url"]) || array_key_exists("profiler_url", $context) ? $context["profiler_url"] : (function () { throw new RuntimeError('Variable "profiler_url" does not exist.', 42, $this->source); })()), "status" => (isset($context["status_color"]) || array_key_exists("status_color", $context) ? $context["status_color"] : (function () { throw new RuntimeError('Variable "status_color" does not exist.', 42, $this->source); })())]);
-        echo "
-";
-        
+        echo twig_include($this->env, $context, '@WebProfiler/Profiler/toolbar_item.html.twig', ['link' => (isset($context['profiler_url']) || array_key_exists('profiler_url', $context) ? $context['profiler_url'] : (function () { throw new RuntimeError('Variable "profiler_url" does not exist.', 42, $this->source); })()), 'status' => (isset($context['status_color']) || array_key_exists('status_color', $context) ? $context['status_color'] : (function () { throw new RuntimeError('Variable "status_color" does not exist.', 42, $this->source); })())]);
+        echo '
+';
+
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-        
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
     }
 
     // line 45
     public function block_menu($context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'menu'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'menu'));
 
         // line 46
-        echo "    <span class=\"label\">
-        <span class=\"icon\">";
+        echo '    <span class="label">
+        <span class="icon">';
         // line 47
-        echo twig_include($this->env, $context, "@WebProfiler/Icon/time.svg");
-        echo "</span>
+        echo twig_include($this->env, $context, '@WebProfiler/Icon/time.svg');
+        echo '</span>
         <strong>Performance</strong>
     </span>
-";
-        
+';
+
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-        
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
     }
 
     // line 52
     public function block_panel($context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panel"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'panel'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panel"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'panel'));
 
         // line 53
-        echo "    ";
-        $context["has_time_events"] = (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 53, $this->source); })()), "events", [], "any", false, false, false, 53)) > 0);
+        echo '    ';
+        $context['has_time_events'] = (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 53, $this->source); })()), 'events', [], 'any', false, false, false, 53)) > 0);
         // line 54
-        echo "    <h2>Performance metrics</h2>
+        echo '    <h2>Performance metrics</h2>
 
-    <div class=\"metrics\">
-        <div class=\"metric\">
-            <span class=\"value\">";
+    <div class="metrics">
+        <div class="metric">
+            <span class="value">';
         // line 58
-        echo twig_escape_filter($this->env, sprintf("%.0f", twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 58, $this->source); })()), "duration", [], "any", false, false, false, 58)), "html", null, true);
-        echo " <span class=\"unit\">ms</span></span>
-            <span class=\"label\">Total execution time</span>
+        echo twig_escape_filter($this->env, sprintf('%.0f', twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 58, $this->source); })()), 'duration', [], 'any', false, false, false, 58)), 'html', null, true);
+        echo ' <span class="unit">ms</span></span>
+            <span class="label">Total execution time</span>
         </div>
 
-        <div class=\"metric\">
-            <span class=\"value\">";
+        <div class="metric">
+            <span class="value">';
         // line 63
-        echo twig_escape_filter($this->env, sprintf("%.0f", twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 63, $this->source); })()), "inittime", [], "any", false, false, false, 63)), "html", null, true);
-        echo " <span class=\"unit\">ms</span></span>
-            <span class=\"label\">Symfony initialization</span>
+        echo twig_escape_filter($this->env, sprintf('%.0f', twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 63, $this->source); })()), 'inittime', [], 'any', false, false, false, 63)), 'html', null, true);
+        echo ' <span class="unit">ms</span></span>
+            <span class="label">Symfony initialization</span>
         </div>
 
-        ";
+        ';
         // line 67
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 67, $this->source); })()), "collectors", [], "any", false, false, false, 67), "memory", [], "any", false, false, false, 67)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 67, $this->source); })()), 'collectors', [], 'any', false, false, false, 67), 'memory', [], 'any', false, false, false, 67)) {
             // line 68
-            echo "            <div class=\"metric\">
-                <span class=\"value\">";
+            echo '            <div class="metric">
+                <span class="value">';
             // line 69
-            echo twig_escape_filter($this->env, sprintf("%.2f", ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 69, $this->source); })()), "collectors", [], "any", false, false, false, 69), "memory", [], "any", false, false, false, 69), "memory", [], "any", false, false, false, 69) / 1024) / 1024)), "html", null, true);
-            echo " <span class=\"unit\">MB</span></span>
-                <span class=\"label\">Peak memory usage</span>
+            echo twig_escape_filter($this->env, sprintf('%.2f', ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 69, $this->source); })()), 'collectors', [], 'any', false, false, false, 69), 'memory', [], 'any', false, false, false, 69), 'memory', [], 'any', false, false, false, 69) / 1024) / 1024)), 'html', null, true);
+            echo ' <span class="unit">MB</span></span>
+                <span class="label">Peak memory usage</span>
             </div>
-        ";
+        ';
         }
         // line 73
-        echo "
-        ";
+        echo '
+        ';
         // line 74
-        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 74, $this->source); })()), "children", [], "any", false, false, false, 74)) > 0)) {
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 74, $this->source); })()), 'children', [], 'any', false, false, false, 74)) > 0)) {
             // line 75
-            echo "            <div class=\"metric-divider\"></div>
+            echo '            <div class="metric-divider"></div>
 
-            <div class=\"metric\">
-                <span class=\"value\">";
+            <div class="metric">
+                <span class="value">';
             // line 78
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 78, $this->source); })()), "children", [], "any", false, false, false, 78)), "html", null, true);
-            echo "</span>
-                <span class=\"label\">Sub-Request";
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 78, $this->source); })()), 'children', [], 'any', false, false, false, 78)), 'html', null, true);
+            echo '</span>
+                <span class="label">Sub-Request';
             // line 79
-            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 79, $this->source); })()), "children", [], "any", false, false, false, 79)) > 1)) ? ("s") : (""));
-            echo "</span>
+            echo ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 79, $this->source); })()), 'children', [], 'any', false, false, false, 79)) > 1)) ? ('s') : ('');
+            echo '</span>
             </div>
 
-            ";
+            ';
             // line 82
-            if ((isset($context["has_time_events"]) || array_key_exists("has_time_events", $context) ? $context["has_time_events"] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 82, $this->source); })())) {
+            if ((isset($context['has_time_events']) || array_key_exists('has_time_events', $context) ? $context['has_time_events'] : (function () { throw new RuntimeError('Variable "has_time_events" does not exist.', 82, $this->source); })())) {
                 // line 83
-                echo "                ";
-                $context["subrequests_time"] = 0;
+                echo '                ';
+                $context['subrequests_time'] = 0;
                 // line 84
-                echo "                ";
+                echo '                ';
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 84, $this->source); })()), "children", [], "any", false, false, false, 84));
-                foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
+                $context['_seq']    = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 84, $this->source); })()), 'children', [], 'any', false, false, false, 84));
+                foreach ($context['_seq'] as $context['_key'] => $context['child']) {
                     // line 85
-                    echo "                    ";
-                    $context["subrequests_time"] = ((isset($context["subrequests_time"]) || array_key_exists("subrequests_time", $context) ? $context["subrequests_time"] : (function () { throw new RuntimeError('Variable "subrequests_time" does not exist.', 85, $this->source); })()) + twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["child"], "getcollector", [0 => "time"], "method", false, false, false, 85), "events", [], "any", false, false, false, 85), "__section__", [], "any", false, false, false, 85), "duration", [], "any", false, false, false, 85));
+                    echo '                    ';
+                    $context['subrequests_time'] = ((isset($context['subrequests_time']) || array_key_exists('subrequests_time', $context) ? $context['subrequests_time'] : (function () { throw new RuntimeError('Variable "subrequests_time" does not exist.', 85, $this->source); })()) + twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context['child'], 'getcollector', [0 => 'time'], 'method', false, false, false, 85), 'events', [], 'any', false, false, false, 85), '__section__', [], 'any', false, false, false, 85), 'duration', [], 'any', false, false, false, 85));
                     // line 86
-                    echo "                ";
+                    echo '                ';
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
                 // line 87
-                echo "            ";
+                echo '            ';
             } else {
                 // line 88
-                echo "                ";
-                $context["subrequests_time"] = "n/a";
+                echo '                ';
+                $context['subrequests_time'] = 'n/a';
                 // line 89
-                echo "            ";
+                echo '            ';
             }
             // line 90
-            echo "
-            <div class=\"metric\">
-                <span class=\"value\">";
+            echo '
+            <div class="metric">
+                <span class="value">';
             // line 92
-            echo twig_escape_filter($this->env, (isset($context["subrequests_time"]) || array_key_exists("subrequests_time", $context) ? $context["subrequests_time"] : (function () { throw new RuntimeError('Variable "subrequests_time" does not exist.', 92, $this->source); })()), "html", null, true);
-            echo " <span class=\"unit\">ms</span></span>
-                <span class=\"label\">Sub-Request";
+            echo twig_escape_filter($this->env, (isset($context['subrequests_time']) || array_key_exists('subrequests_time', $context) ? $context['subrequests_time'] : (function () { throw new RuntimeError('Variable "subrequests_time" does not exist.', 92, $this->source); })()), 'html', null, true);
+            echo ' <span class="unit">ms</span></span>
+                <span class="label">Sub-Request';
             // line 93
-            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 93, $this->source); })()), "children", [], "any", false, false, false, 93)) > 1)) ? ("s") : (""));
-            echo " time</span>
+            echo ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 93, $this->source); })()), 'children', [], 'any', false, false, false, 93)) > 1)) ? ('s') : ('');
+            echo ' time</span>
             </div>
-        ";
+        ';
         }
         // line 96
-        echo "    </div>
+        echo '    </div>
 
     <h2>Execution timeline</h2>
 
-    ";
+    ';
         // line 100
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 100, $this->source); })()), "isStopwatchInstalled", [], "method", false, false, false, 100)) {
+        if (!twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 100, $this->source); })()), 'isStopwatchInstalled', [], 'method', false, false, false, 100)) {
             // line 101
-            echo "        <div class=\"empty\">
+            echo '        <div class="empty">
             <p>The Stopwatch component is not installed. If you want to see timing events, run: <code>composer require symfony/stopwatch</code>.</p>
         </div>
-    ";
+    ';
         } elseif (twig_test_empty(twig_get_attribute($this->env, $this->source,         // line 104
-(isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 104, $this->source); })()), "events", [], "any", false, false, false, 104))) {
+(isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 104, $this->source); })()), 'events', [], 'any', false, false, false, 104))) {
             // line 105
-            echo "        <div class=\"empty\">
+            echo '        <div class="empty">
             <p>No timing events have been recorded. Check that symfony/stopwatch is installed and debugging enabled in the kernel.</p>
         </div>
-    ";
+    ';
         } else {
             // line 109
-            echo "        ";
-            $this->displayBlock("panelContent", $context, $blocks);
-            echo "
-    ";
+            echo '        ';
+            $this->displayBlock('panelContent', $context, $blocks);
+            echo '
+    ';
         }
-        
+
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-        
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
     }
 
     // line 113
     public function block_panelContent($context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panelContent"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'panelContent'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "panelContent"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'block', 'panelContent'));
 
         // line 114
-        echo "    <form id=\"timeline-control\" action=\"\" method=\"get\">
-        <input type=\"hidden\" name=\"panel\" value=\"time\">
-        <label for=\"threshold\">Threshold</label>
-        <input type=\"number\" size=\"3\" name=\"threshold\" id=\"threshold\" value=\"3\" min=\"0\"> ms
-        <span class=\"help\">(timeline only displays events with a duration longer than this threshold)</span>
+        echo '    <form id="timeline-control" action="" method="get">
+        <input type="hidden" name="panel" value="time">
+        <label for="threshold">Threshold</label>
+        <input type="number" size="3" name="threshold" id="threshold" value="3" min="0"> ms
+        <span class="help">(timeline only displays events with a duration longer than this threshold)</span>
     </form>
 
-    ";
+    ';
         // line 121
-        if (twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 121, $this->source); })()), "parent", [], "any", false, false, false, 121)) {
+        if (twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 121, $this->source); })()), 'parent', [], 'any', false, false, false, 121)) {
             // line 122
-            echo "        <h3 class=\"dump-inline\">
-            Sub-Request ";
+            echo '        <h3 class="dump-inline">
+            Sub-Request ';
             // line 123
-            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 123, $this->source); })()), "getcollector", [0 => "request"], "method", false, false, false, 123), "requestattributes", [], "any", false, false, false, 123), "get", [0 => "_controller"], "method", false, false, false, 123));
-            echo "
+            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 123, $this->source); })()), 'getcollector', [0 => 'request'], 'method', false, false, false, 123), 'requestattributes', [], 'any', false, false, false, 123), 'get', [0 => '_controller'], 'method', false, false, false, 123));
+            echo '
             <small>
-                ";
+                ';
             // line 125
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 125, $this->source); })()), "events", [], "any", false, false, false, 125), "__section__", [], "any", false, false, false, 125), "duration", [], "any", false, false, false, 125), "html", null, true);
-            echo " ms
-                <a class=\"newline\" href=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 125, $this->source); })()), 'events', [], 'any', false, false, false, 125), '__section__', [], 'any', false, false, false, 125), 'duration', [], 'any', false, false, false, 125), 'html', null, true);
+            echo ' ms
+                <a class="newline" href="';
             // line 126
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("_profiler", ["token" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 126, $this->source); })()), "parent", [], "any", false, false, false, 126), "token", [], "any", false, false, false, 126), "panel" => "time"]), "html", null, true);
-            echo "\">Return to parent request</a>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath('_profiler', ['token' => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 126, $this->source); })()), 'parent', [], 'any', false, false, false, 126), 'token', [], 'any', false, false, false, 126), 'panel' => 'time']), 'html', null, true);
+            echo '">Return to parent request</a>
             </small>
         </h3>
-    ";
+    ';
         } elseif ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source,         // line 129
-(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 129, $this->source); })()), "children", [], "any", false, false, false, 129)) > 0)) {
+(isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 129, $this->source); })()), 'children', [], 'any', false, false, false, 129)) > 0)) {
             // line 130
-            echo "        <h3>
-            Main Request <small>";
+            echo '        <h3>
+            Main Request <small>';
             // line 131
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 131, $this->source); })()), "events", [], "any", false, false, false, 131), "__section__", [], "any", false, false, false, 131), "duration", [], "any", false, false, false, 131), "html", null, true);
-            echo " ms</small>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 131, $this->source); })()), 'events', [], 'any', false, false, false, 131), '__section__', [], 'any', false, false, false, 131), 'duration', [], 'any', false, false, false, 131), 'html', null, true);
+            echo ' ms</small>
         </h3>
-    ";
+    ';
         }
         // line 134
-        echo "
-    ";
+        echo '
+    ';
         // line 135
-        echo $context["helper"]->macro_display_timeline(("timeline_" . (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 135, $this->source); })())), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 135, $this->source); })()));
-        echo "
+        echo $context['helper']->macro_display_timeline(('timeline_'.(isset($context['token']) || array_key_exists('token', $context) ? $context['token'] : (function () { throw new RuntimeError('Variable "token" does not exist.', 135, $this->source); })())), (isset($context['colors']) || array_key_exists('colors', $context) ? $context['colors'] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 135, $this->source); })()));
+        echo '
 
-    ";
+    ';
         // line 137
-        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 137, $this->source); })()), "children", [], "any", false, false, false, 137))) {
+        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 137, $this->source); })()), 'children', [], 'any', false, false, false, 137))) {
             // line 138
-            echo "        <p class=\"help\">Note: sections with a striped background correspond to sub-requests.</p>
+            echo '        <p class="help">Note: sections with a striped background correspond to sub-requests.</p>
 
-        <h3>Sub-requests <small>(";
+        <h3>Sub-requests <small>(';
             // line 140
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 140, $this->source); })()), "children", [], "any", false, false, false, 140)), "html", null, true);
-            echo ")</small></h3>
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 140, $this->source); })()), 'children', [], 'any', false, false, false, 140)), 'html', null, true);
+            echo ')</small></h3>
 
-        ";
+        ';
             // line 142
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 142, $this->source); })()), "children", [], "any", false, false, false, 142));
-            foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
+            $context['_seq']    = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 142, $this->source); })()), 'children', [], 'any', false, false, false, 142));
+            foreach ($context['_seq'] as $context['_key'] => $context['child']) {
                 // line 143
-                echo "            ";
-                $context["events"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["child"], "getcollector", [0 => "time"], "method", false, false, false, 143), "events", [], "any", false, false, false, 143);
+                echo '            ';
+                $context['events'] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context['child'], 'getcollector', [0 => 'time'], 'method', false, false, false, 143), 'events', [], 'any', false, false, false, 143);
                 // line 144
-                echo "            <h4>
-                <a href=\"";
+                echo '            <h4>
+                <a href="';
                 // line 145
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("_profiler", ["token" => twig_get_attribute($this->env, $this->source, $context["child"], "token", [], "any", false, false, false, 145), "panel" => "time"]), "html", null, true);
-                echo "\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["child"], "getcollector", [0 => "request"], "method", false, false, false, 145), "identifier", [], "any", false, false, false, 145), "html", null, true);
-                echo "</a>
-                <small>";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath('_profiler', ['token' => twig_get_attribute($this->env, $this->source, $context['child'], 'token', [], 'any', false, false, false, 145), 'panel' => 'time']), 'html', null, true);
+                echo '">';
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context['child'], 'getcollector', [0 => 'request'], 'method', false, false, false, 145), 'identifier', [], 'any', false, false, false, 145), 'html', null, true);
+                echo '</a>
+                <small>';
                 // line 146
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 146, $this->source); })()), "__section__", [], "any", false, false, false, 146), "duration", [], "any", false, false, false, 146), "html", null, true);
-                echo " ms</small>
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['events']) || array_key_exists('events', $context) ? $context['events'] : (function () { throw new RuntimeError('Variable "events" does not exist.', 146, $this->source); })()), '__section__', [], 'any', false, false, false, 146), 'duration', [], 'any', false, false, false, 146), 'html', null, true);
+                echo ' ms</small>
             </h4>
 
-            ";
+            ';
                 // line 149
-                echo $context["helper"]->macro_display_timeline(("timeline_" . twig_get_attribute($this->env, $this->source, $context["child"], "token", [], "any", false, false, false, 149)), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 149, $this->source); })()));
-                echo "
-        ";
+                echo $context['helper']->macro_display_timeline(('timeline_'.twig_get_attribute($this->env, $this->source, $context['child'], 'token', [], 'any', false, false, false, 149)), (isset($context['colors']) || array_key_exists('colors', $context) ? $context['colors'] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 149, $this->source); })()));
+                echo '
+        ';
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 151
-            echo "    ";
+            echo '    ';
         }
         // line 152
-        echo "
-    <script>";
+        echo '
+    <script>';
         // line 153
         echo "//<![CDATA[
         /**
@@ -456,7 +452,7 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
 
             var _drawingColors = ";
         // line 195
-        echo json_encode((isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 195, $this->source); })()));
+        echo json_encode((isset($context['colors']) || array_key_exists('colors', $context) ? $context['colors'] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 195, $this->source); })()));
         echo ",
                 _storagePrefix = 'timeline/',
                 _threshold = 1,
@@ -741,42 +737,42 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
         var requests_data = {
             \"max\": ";
         // line 477
-        echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 477, $this->source); })()), "events", [], "any", false, false, false, 477), "__section__", [], "any", false, false, false, 477), "endtime", [], "any", false, false, false, 477)), "js", null, true);
-        echo ",
-            \"requests\": [
-";
+        echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 477, $this->source); })()), 'events', [], 'any', false, false, false, 477), '__section__', [], 'any', false, false, false, 477), 'endtime', [], 'any', false, false, false, 477)), 'js', null, true);
+        echo ',
+            "requests": [
+';
         // line 479
-        echo $context["helper"]->macro_dump_request_data((isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 479, $this->source); })()), twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 479, $this->source); })()), "events", [], "any", false, false, false, 479), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 479, $this->source); })()), "events", [], "any", false, false, false, 479), "__section__", [], "any", false, false, false, 479), "origin", [], "any", false, false, false, 479));
-        echo "
+        echo $context['helper']->macro_dump_request_data((isset($context['token']) || array_key_exists('token', $context) ? $context['token'] : (function () { throw new RuntimeError('Variable "token" does not exist.', 479, $this->source); })()), twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 479, $this->source); })()), 'events', [], 'any', false, false, false, 479), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 479, $this->source); })()), 'events', [], 'any', false, false, false, 479), '__section__', [], 'any', false, false, false, 479), 'origin', [], 'any', false, false, false, 479));
+        echo '
 
-";
+';
         // line 481
-        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 481, $this->source); })()), "children", [], "any", false, false, false, 481))) {
+        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 481, $this->source); })()), 'children', [], 'any', false, false, false, 481))) {
             // line 482
-            echo "                ,
-";
+            echo '                ,
+';
             // line 483
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 483, $this->source); })()), "children", [], "any", false, false, false, 483));
-            $context['loop'] = [
-              'parent' => $context['_parent'],
-              'index0' => 0,
-              'index'  => 1,
-              'first'  => true,
+            $context['_seq']    = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context['profile']) || array_key_exists('profile', $context) ? $context['profile'] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 483, $this->source); })()), 'children', [], 'any', false, false, false, 483));
+            $context['loop']    = [
+                'parent' => $context['_parent'],
+                'index0' => 0,
+                'index'  => 1,
+                'first'  => true,
             ];
             if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-                $length = count($context['_seq']);
+                $length                       = count($context['_seq']);
                 $context['loop']['revindex0'] = $length - 1;
-                $context['loop']['revindex'] = $length;
-                $context['loop']['length'] = $length;
-                $context['loop']['last'] = 1 === $length;
+                $context['loop']['revindex']  = $length;
+                $context['loop']['length']    = $length;
+                $context['loop']['last']      = 1 === $length;
             }
-            foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
+            foreach ($context['_seq'] as $context['_key'] => $context['child']) {
                 // line 484
-                echo $context["helper"]->macro_dump_request_data(twig_get_attribute($this->env, $this->source, $context["child"], "token", [], "any", false, false, false, 484), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["child"], "getcollector", [0 => "time"], "method", false, false, false, 484), "events", [], "any", false, false, false, 484), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 484, $this->source); })()), "events", [], "any", false, false, false, 484), "__section__", [], "any", false, false, false, 484), "origin", [], "any", false, false, false, 484));
-                echo ((twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 484)) ? ("") : (","));
-                echo "
-";
+                echo $context['helper']->macro_dump_request_data(twig_get_attribute($this->env, $this->source, $context['child'], 'token', [], 'any', false, false, false, 484), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context['child'], 'getcollector', [0 => 'time'], 'method', false, false, false, 484), 'events', [], 'any', false, false, false, 484), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['collector']) || array_key_exists('collector', $context) ? $context['collector'] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 484, $this->source); })()), 'events', [], 'any', false, false, false, 484), '__section__', [], 'any', false, false, false, 484), 'origin', [], 'any', false, false, false, 484));
+                echo (twig_get_attribute($this->env, $this->source, $context['loop'], 'last', [], 'any', false, false, false, 484)) ? ('') : (',');
+                echo '
+';
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
                 $context['loop']['first'] = false;
@@ -825,62 +821,58 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
 
     //]]>";
         // line 519
-        echo "</script>
-";
-        
+        echo '</script>
+';
+
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-        
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
     }
 
     // line 522
     public function macro_dump_request_data($__token__ = null, $__events__ = null, $__origin__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals([
-            "token" => $__token__,
-            "events" => $__events__,
-            "origin" => $__origin__,
-            "varargs" => $__varargs__,
+            'token'   => $__token__,
+            'events'  => $__events__,
+            'origin'  => $__origin__,
+            'varargs' => $__varargs__,
         ]);
 
         $blocks = [];
 
         ob_start();
         try {
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_request_data"));
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'dump_request_data'));
 
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_request_data"));
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'dump_request_data'));
 
             // line 524
-            $context["__internal_284388af48f273e1fb152fd4ce13c47360431f404f0913f5dae6c2f01e99cf44"] = $this;
+            $context['__internal_284388af48f273e1fb152fd4ce13c47360431f404f0913f5dae6c2f01e99cf44'] = $this;
             // line 525
-            echo "                {
-                    \"id\": \"";
+            echo '                {
+                    "id": "';
             // line 526
-            echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 526, $this->source); })()), "js", null, true);
-            echo "\",
-                    \"left\": ";
+            echo twig_escape_filter($this->env, (isset($context['token']) || array_key_exists('token', $context) ? $context['token'] : (function () { throw new RuntimeError('Variable "token" does not exist.', 526, $this->source); })()), 'js', null, true);
+            echo '",
+                    "left": ';
             // line 527
-            echo twig_escape_filter($this->env, sprintf("%F", (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 527, $this->source); })()), "__section__", [], "any", false, false, false, 527), "origin", [], "any", false, false, false, 527) - (isset($context["origin"]) || array_key_exists("origin", $context) ? $context["origin"] : (function () { throw new RuntimeError('Variable "origin" does not exist.', 527, $this->source); })()))), "js", null, true);
-            echo ",
-                    \"events\": [
-";
+            echo twig_escape_filter($this->env, sprintf('%F', (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context['events']) || array_key_exists('events', $context) ? $context['events'] : (function () { throw new RuntimeError('Variable "events" does not exist.', 527, $this->source); })()), '__section__', [], 'any', false, false, false, 527), 'origin', [], 'any', false, false, false, 527) - (isset($context['origin']) || array_key_exists('origin', $context) ? $context['origin'] : (function () { throw new RuntimeError('Variable "origin" does not exist.', 527, $this->source); })()))), 'js', null, true);
+            echo ',
+                    "events": [
+';
             // line 529
-            echo $context["__internal_284388af48f273e1fb152fd4ce13c47360431f404f0913f5dae6c2f01e99cf44"]->macro_dump_events((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 529, $this->source); })()));
-            echo "
+            echo $context['__internal_284388af48f273e1fb152fd4ce13c47360431f404f0913f5dae6c2f01e99cf44']->macro_dump_events((isset($context['events']) || array_key_exists('events', $context) ? $context['events'] : (function () { throw new RuntimeError('Variable "events" does not exist.', 529, $this->source); })()));
+            echo '
                     ]
                 }
-";
-            
+';
+
             $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-            
             $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
 
             return ('' === $tmp = ob_get_contents()) ? '' : new Markup($tmp, $this->env->getCharset());
         } finally {
@@ -892,94 +884,94 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
     public function macro_dump_events($__events__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals([
-            "events" => $__events__,
-            "varargs" => $__varargs__,
+            'events'  => $__events__,
+            'varargs' => $__varargs__,
         ]);
 
         $blocks = [];
 
         ob_start();
         try {
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_events"));
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'dump_events'));
 
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_events"));
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'dump_events'));
 
             // line 537
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 537, $this->source); })()));
-            $context['loop'] = [
-              'parent' => $context['_parent'],
-              'index0' => 0,
-              'index'  => 1,
-              'first'  => true,
+            $context['_seq']    = twig_ensure_traversable((isset($context['events']) || array_key_exists('events', $context) ? $context['events'] : (function () { throw new RuntimeError('Variable "events" does not exist.', 537, $this->source); })()));
+            $context['loop']    = [
+                'parent' => $context['_parent'],
+                'index0' => 0,
+                'index'  => 1,
+                'first'  => true,
             ];
             if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-                $length = count($context['_seq']);
+                $length                       = count($context['_seq']);
                 $context['loop']['revindex0'] = $length - 1;
-                $context['loop']['revindex'] = $length;
-                $context['loop']['length'] = $length;
-                $context['loop']['last'] = 1 === $length;
+                $context['loop']['revindex']  = $length;
+                $context['loop']['length']    = $length;
+                $context['loop']['last']      = 1 === $length;
             }
-            foreach ($context['_seq'] as $context["name"] => $context["event"]) {
+            foreach ($context['_seq'] as $context['name'] => $context['event']) {
                 // line 538
-                if (("__section__" != $context["name"])) {
+                if (('__section__' !== $context['name'])) {
                     // line 539
-                    echo "                        {
-                            \"name\": \"";
+                    echo '                        {
+                            "name": "';
                     // line 540
-                    echo twig_escape_filter($this->env, $context["name"], "js", null, true);
-                    echo "\",
-                            \"category\": \"";
+                    echo twig_escape_filter($this->env, $context['name'], 'js', null, true);
+                    echo '",
+                            "category": "';
                     // line 541
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "category", [], "any", false, false, false, 541), "js", null, true);
-                    echo "\",
-                            \"origin\": ";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context['event'], 'category', [], 'any', false, false, false, 541), 'js', null, true);
+                    echo '",
+                            "origin": ';
                     // line 542
-                    echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["event"], "origin", [], "any", false, false, false, 542)), "js", null, true);
-                    echo ",
-                            \"starttime\": ";
+                    echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['event'], 'origin', [], 'any', false, false, false, 542)), 'js', null, true);
+                    echo ',
+                            "starttime": ';
                     // line 543
-                    echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["event"], "starttime", [], "any", false, false, false, 543)), "js", null, true);
-                    echo ",
-                            \"endtime\": ";
+                    echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['event'], 'starttime', [], 'any', false, false, false, 543)), 'js', null, true);
+                    echo ',
+                            "endtime": ';
                     // line 544
-                    echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["event"], "endtime", [], "any", false, false, false, 544)), "js", null, true);
-                    echo ",
-                            \"duration\": ";
+                    echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['event'], 'endtime', [], 'any', false, false, false, 544)), 'js', null, true);
+                    echo ',
+                            "duration": ';
                     // line 545
-                    echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["event"], "duration", [], "any", false, false, false, 545)), "js", null, true);
-                    echo ",
-                            \"memory\": ";
+                    echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['event'], 'duration', [], 'any', false, false, false, 545)), 'js', null, true);
+                    echo ',
+                            "memory": ';
                     // line 546
-                    echo twig_escape_filter($this->env, sprintf("%.1F", ((twig_get_attribute($this->env, $this->source, $context["event"], "memory", [], "any", false, false, false, 546) / 1024) / 1024)), "js", null, true);
-                    echo ",
-                            \"periods\": [";
+                    echo twig_escape_filter($this->env, sprintf('%.1F', ((twig_get_attribute($this->env, $this->source, $context['event'], 'memory', [], 'any', false, false, false, 546) / 1024) / 1024)), 'js', null, true);
+                    echo ',
+                            "periods": [';
                     // line 548
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["event"], "periods", [], "any", false, false, false, 548));
-                    $context['loop'] = [
-                      'parent' => $context['_parent'],
-                      'index0' => 0,
-                      'index'  => 1,
-                      'first'  => true,
+                    $context['_seq']    = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context['event'], 'periods', [], 'any', false, false, false, 548));
+                    $context['loop']    = [
+                        'parent' => $context['_parent'],
+                        'index0' => 0,
+                        'index'  => 1,
+                        'first'  => true,
                     ];
                     if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-                        $length = count($context['_seq']);
+                        $length                       = count($context['_seq']);
                         $context['loop']['revindex0'] = $length - 1;
-                        $context['loop']['revindex'] = $length;
-                        $context['loop']['length'] = $length;
-                        $context['loop']['last'] = 1 === $length;
+                        $context['loop']['revindex']  = $length;
+                        $context['loop']['length']    = $length;
+                        $context['loop']['last']      = 1 === $length;
                     }
-                    foreach ($context['_seq'] as $context["_key"] => $context["period"]) {
+                    foreach ($context['_seq'] as $context['_key'] => $context['period']) {
                         // line 549
-                        echo "{\"start\": ";
-                        echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["period"], "starttime", [], "any", false, false, false, 549)), "js", null, true);
-                        echo ", \"end\": ";
-                        echo twig_escape_filter($this->env, sprintf("%F", twig_get_attribute($this->env, $this->source, $context["period"], "endtime", [], "any", false, false, false, 549)), "js", null, true);
-                        echo "}";
-                        echo ((twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 549)) ? ("") : (", "));
+                        echo '{"start": ';
+                        echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['period'], 'starttime', [], 'any', false, false, false, 549)), 'js', null, true);
+                        echo ', "end": ';
+                        echo twig_escape_filter($this->env, sprintf('%F', twig_get_attribute($this->env, $this->source, $context['period'], 'endtime', [], 'any', false, false, false, 549)), 'js', null, true);
+                        echo '}';
+                        echo (twig_get_attribute($this->env, $this->source, $context['loop'], 'last', [], 'any', false, false, false, 549)) ? ('') : (', ');
                         ++$context['loop']['index0'];
                         ++$context['loop']['index'];
                         $context['loop']['first'] = false;
@@ -993,12 +985,12 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['period'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
                     // line 551
-                    echo "]
-                        }";
+                    echo ']
+                        }';
                     // line 552
-                    echo ((twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 552)) ? ("") : (","));
-                    echo "
-";
+                    echo (twig_get_attribute($this->env, $this->source, $context['loop'], 'last', [], 'any', false, false, false, 552)) ? ('') : (',');
+                    echo '
+';
                 }
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -1012,12 +1004,10 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['name'], $context['event'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            
+
             $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-            
             $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
 
             return ('' === $tmp = ob_get_contents()) ? '' : new Markup($tmp, $this->env->getCharset());
         } finally {
@@ -1029,54 +1019,52 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
     public function macro_display_timeline($__id__ = null, $__colors__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals([
-            "id" => $__id__,
-            "colors" => $__colors__,
-            "varargs" => $__varargs__,
+            'id'      => $__id__,
+            'colors'  => $__colors__,
+            'varargs' => $__varargs__,
         ]);
 
         $blocks = [];
 
         ob_start();
         try {
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "display_timeline"));
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+            $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'display_timeline'));
 
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "display_timeline"));
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+            $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'macro', 'display_timeline'));
 
             // line 559
-            echo "    <div class=\"sf-profiler-timeline\">
-        <div class=\"legends\">
-            ";
+            echo '    <div class="sf-profiler-timeline">
+        <div class="legends">
+            ';
             // line 561
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 561, $this->source); })()));
-            foreach ($context['_seq'] as $context["category"] => $context["color"]) {
+            $context['_seq']    = twig_ensure_traversable((isset($context['colors']) || array_key_exists('colors', $context) ? $context['colors'] : (function () { throw new RuntimeError('Variable "colors" does not exist.', 561, $this->source); })()));
+            foreach ($context['_seq'] as $context['category'] => $context['color']) {
                 // line 562
-                echo "                <span data-color=\"";
-                echo twig_escape_filter($this->env, $context["color"], "html", null, true);
-                echo "\">";
-                echo twig_escape_filter($this->env, $context["category"], "html", null, true);
-                echo "</span>
-            ";
+                echo '                <span data-color="';
+                echo twig_escape_filter($this->env, $context['color'], 'html', null, true);
+                echo '">';
+                echo twig_escape_filter($this->env, $context['category'], 'html', null, true);
+                echo '</span>
+            ';
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['category'], $context['color'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 564
-            echo "        </div>
-        <canvas width=\"680\" height=\"\" id=\"";
+            echo '        </div>
+        <canvas width="680" height="" id="';
             // line 565
-            echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 565, $this->source); })()), "html", null, true);
-            echo "\" class=\"timeline\"></canvas>
+            echo twig_escape_filter($this->env, (isset($context['id']) || array_key_exists('id', $context) ? $context['id'] : (function () { throw new RuntimeError('Variable "id" does not exist.', 565, $this->source); })()), 'html', null, true);
+            echo '" class="timeline"></canvas>
     </div>
-";
-            
+';
+
             $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-            
             $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
 
             return ('' === $tmp = ob_get_contents()) ? '' : new Markup($tmp, $this->env->getCharset());
         } finally {
@@ -1086,7 +1074,7 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Collector/time.html.twig";
+        return '@WebProfiler/Collector/time.html.twig';
     }
 
     public function isTraitable()
@@ -1096,7 +1084,7 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
 
     public function getDebugInfo()
     {
-        return array (  1070 => 565,  1067 => 564,  1056 => 562,  1052 => 561,  1048 => 559,  1029 => 558,  999 => 552,  996 => 551,  977 => 549,  960 => 548,  956 => 546,  952 => 545,  948 => 544,  944 => 543,  940 => 542,  936 => 541,  932 => 540,  929 => 539,  927 => 538,  910 => 537,  892 => 535,  873 => 529,  868 => 527,  864 => 526,  861 => 525,  859 => 524,  839 => 522,  828 => 519,  794 => 487,  776 => 484,  759 => 483,  756 => 482,  754 => 481,  749 => 479,  744 => 477,  459 => 195,  415 => 153,  412 => 152,  409 => 151,  401 => 149,  395 => 146,  389 => 145,  386 => 144,  383 => 143,  379 => 142,  374 => 140,  370 => 138,  368 => 137,  363 => 135,  360 => 134,  354 => 131,  351 => 130,  349 => 129,  343 => 126,  339 => 125,  334 => 123,  331 => 122,  329 => 121,  320 => 114,  311 => 113,  297 => 109,  291 => 105,  289 => 104,  284 => 101,  282 => 100,  276 => 96,  270 => 93,  266 => 92,  262 => 90,  259 => 89,  256 => 88,  253 => 87,  247 => 86,  244 => 85,  239 => 84,  236 => 83,  234 => 82,  228 => 79,  224 => 78,  219 => 75,  217 => 74,  214 => 73,  207 => 69,  204 => 68,  202 => 67,  195 => 63,  187 => 58,  181 => 54,  178 => 53,  169 => 52,  155 => 47,  152 => 46,  143 => 45,  131 => 42,  128 => 41,  122 => 38,  115 => 34,  111 => 32,  109 => 31,  106 => 30,  100 => 27,  95 => 26,  93 => 25,  90 => 24,  87 => 23,  84 => 22,  82 => 21,  79 => 20,  76 => 19,  67 => 18,  56 => 1,  53 => 6,  51 => 5,  49 => 3,  37 => 1,);
+        return [1070 => 565,  1067 => 564,  1056 => 562,  1052 => 561,  1048 => 559,  1029 => 558,  999 => 552,  996 => 551,  977 => 549,  960 => 548,  956 => 546,  952 => 545,  948 => 544,  944 => 543,  940 => 542,  936 => 541,  932 => 540,  929 => 539,  927 => 538,  910 => 537,  892 => 535,  873 => 529,  868 => 527,  864 => 526,  861 => 525,  859 => 524,  839 => 522,  828 => 519,  794 => 487,  776 => 484,  759 => 483,  756 => 482,  754 => 481,  749 => 479,  744 => 477,  459 => 195,  415 => 153,  412 => 152,  409 => 151,  401 => 149,  395 => 146,  389 => 145,  386 => 144,  383 => 143,  379 => 142,  374 => 140,  370 => 138,  368 => 137,  363 => 135,  360 => 134,  354 => 131,  351 => 130,  349 => 129,  343 => 126,  339 => 125,  334 => 123,  331 => 122,  329 => 121,  320 => 114,  311 => 113,  297 => 109,  291 => 105,  289 => 104,  284 => 101,  282 => 100,  276 => 96,  270 => 93,  266 => 92,  262 => 90,  259 => 89,  256 => 88,  253 => 87,  247 => 86,  244 => 85,  239 => 84,  236 => 83,  234 => 82,  228 => 79,  224 => 78,  219 => 75,  217 => 74,  214 => 73,  207 => 69,  204 => 68,  202 => 67,  195 => 63,  187 => 58,  181 => 54,  178 => 53,  169 => 52,  155 => 47,  152 => 46,  143 => 45,  131 => 42,  128 => 41,  122 => 38,  115 => 34,  111 => 32,  109 => 31,  106 => 30,  100 => 27,  95 => 26,  93 => 25,  90 => 24,  87 => 23,  84 => 22,  82 => 21,  79 => 20,  76 => 19,  67 => 18,  56 => 1,  53 => 6,  51 => 5,  49 => 3,  37 => 1];
     }
 
     public function getSourceContext()
@@ -1668,6 +1656,6 @@ class __TwigTemplate_d291f3975cec906f2bec20f18a76ab37d45636ba6188110a669915d072a
         <canvas width=\"680\" height=\"\" id=\"{{ id }}\" class=\"timeline\"></canvas>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
+", '@WebProfiler/Collector/time.html.twig', '/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig');
     }
 }
