@@ -22,6 +22,7 @@ declare(strict_types=1);
 
 namespace Doyo\UserBundle\DependencyInjection;
 
+use Doyo\UserBundle\Security\Voter\UserResourceVoter;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -50,7 +51,35 @@ class DoyoUserExtension extends Extension
             if (!class_exists($userClass, true)) {
                 throw new InvalidConfigurationException(sprintf('Error setting User class. The class "%s" is not exists.', $userClass));
             }
-            $container->setParameter('doyo.user.user_class', $config['user_class']);
+            $container->setParameter('doyo_user.user_class', $config['user_class']);
+        }
+
+        $roles = $config['security_roles'];
+        $container->setParameter('doyo_user.security.roles', [
+            UserResourceVoter::LIST            => $roles['list'],
+            UserResourceVoter::CREATE          => $roles['create'],
+            UserResourceVoter::READ            => $roles['read'],
+            UserResourceVoter::UPDATE          => $roles['update'],
+            UserResourceVoter::DELETE          => $roles['delete'],
+            UserResourceVoter::REGISTER        => $roles['register'],
+            UserResourceVoter::CHANGE_PASSWORD => $roles['change_password'],
+            UserResourceVoter::RESET_PASSWORD  => $roles['reset_password'],
+            UserResourceVoter::PROFILE_UPDATE  => $roles['update_profile'],
+        ]);
+
+        $this->mapParameters($container,'doyo_user.config',$config['config']);
+        $this->mapParameters($container,'doyo_user.mail_confirmation',$config['mail_confirmation']);
+
+        //@todo make reset password token ttl
+        $container->setParameter('doyo_user_bundle_path', realpath(__DIR__.'/../../'));
+    }
+
+    private function mapParameters(ContainerBuilder $container, $nsPrefix, array $config)
+    {
+        $container->setParameter($nsPrefix,$config);
+        foreach($config as $name => $key){
+            $paramName = $nsPrefix.'.'.$name;
+            $container->setParameter($paramName,$config[$name]);
         }
     }
 }

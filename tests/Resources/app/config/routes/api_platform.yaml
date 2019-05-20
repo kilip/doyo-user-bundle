@@ -1,7 +1,0 @@
-doyo_user_bundle:
-    resource: "@DoyoUserBundle/Resources/config/routes.yaml"
-
-api_platform:
-    resource: .
-    type: api_platform
-    prefix: /api

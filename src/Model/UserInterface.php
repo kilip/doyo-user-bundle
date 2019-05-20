@@ -27,7 +27,7 @@ use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 /**
  * @internal Only for back compatibility. Remove / merge when dropping support for Symfony 4
  */
-interface UserInterface extends BaseUserInterface
+interface UserInterface extends BaseUserInterface, \Serializable
 {
     public const ROLE_DEFAULT = 'ROLE_USER';
 
@@ -100,9 +100,10 @@ interface UserInterface extends BaseUserInterface
     /**
      * Sets the confirmation token.
      *
+     * @param string $confirmationToken
      * @return static
      */
-    public function setConfirmationToken(?string $confirmationToken);
+    public function setConfirmationToken(string $confirmationToken);
 
     /**
      * Sets the timestamp that the user requested a password reset.
@@ -110,6 +111,11 @@ interface UserInterface extends BaseUserInterface
      * @return static
      */
     public function setPasswordRequestedAt(?\DateTime $date = null);
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPasswordRequestedAt():?\DateTime;
 
     /**
      * Checks whether the password reset request has expired.

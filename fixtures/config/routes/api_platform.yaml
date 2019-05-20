@@ -1,0 +1,16 @@
+doyo_user_bundle:
+    resource: "@DoyoUserBundle/Resources/config/routes.yaml"
+
+api_platform:
+    resource: .
+    type: api_platform
+    prefix: /api
+
+login_check:
+    path: /login-check
+    methods: ['POST']
+
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+

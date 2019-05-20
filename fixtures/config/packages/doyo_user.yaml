@@ -1,0 +1,6 @@
+doyo_user:
+  mail_confirmation:
+    reset_password_route: app_reset_password_confirm
+    register_route: app_register_confirm
+  security_roles:
+    list: is_granted("ROLE_ADMIN")

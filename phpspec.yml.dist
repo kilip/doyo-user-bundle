@@ -1,0 +1,5 @@
+formater.name: dot
+suites:
+    default:
+        namespace: Doyo\UserBundle
+        psr4_prefix: Doyo\UserBundle

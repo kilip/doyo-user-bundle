@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Doyo\UserBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ProfileController
+class ProfileController extends AbstractController
 {
     /**
      * @Route(
