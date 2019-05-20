@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/*
  * This file is part of the Omed package.
  *
  * (c) Anthonius Munthi <me@itstoni.com>
@@ -10,7 +21,6 @@
  */
 
 namespace Doyo\UserBundle\Behat;
-
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -29,7 +39,6 @@ class MailContext implements Context
 
     /**
      * @BeforeScenario
-     * @param BeforeScenarioScope $scope
      */
     public function gatherContexts(BeforeScenarioScope $scope)
     {
@@ -40,27 +49,29 @@ class MailContext implements Context
      * @Given an email should be sent to :emailAddress
      *
      * @param string $emailAdress
+     *
      * @throws UnsupportedDriverActionException
      */
     public function thenEmailShouldBeSentTo($emailAdress)
     {
-        $profile = $this->getSymfonyProfile();
-        $collector = $profile->getCollector('swiftmailer');
+        $profile          = $this->getSymfonyProfile();
+        $collector        = $profile->getCollector('swiftmailer');
         $correctRecipient = false;
-        foreach($collector->getMessages() as $message){
-            $correctRecipient = array_key_exists($emailAdress, $message->getTo());
+        foreach ($collector->getMessages() as $message) {
+            $correctRecipient = \array_key_exists($emailAdress, $message->getTo());
 
-            if($correctRecipient){
+            if ($correctRecipient) {
                 break;
             }
         }
 
-        Assert::true($correctRecipient,'Email is not sent to '.$emailAdress);
+        Assert::true($correctRecipient, 'Email is not sent to '.$emailAdress);
     }
 
     /**
-     * @return Profile
      * @throws UnsupportedDriverActionException
+     *
+     * @return Profile
      */
     protected function getSymfonyProfile()
     {

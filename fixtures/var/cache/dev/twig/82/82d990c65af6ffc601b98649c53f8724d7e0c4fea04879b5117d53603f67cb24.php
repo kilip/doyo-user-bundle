@@ -1,16 +1,18 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
-use Twig\Template;
 
 /* @WebProfiler/Collector/exception.css.twig */
 class __TwigTemplate_e0c96758f53e0a0666f152b3a1114b4b82383fff039040981d8cd9191c6bb8ba extends \Twig\Template
@@ -31,15 +33,15 @@ class __TwigTemplate_e0c96758f53e0a0666f152b3a1114b4b82383fff039040981d8cd9191c6
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/exception.css.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Collector/exception.css.twig'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/exception.css.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Collector/exception.css.twig'));
 
         // line 1
-        echo twig_include($this->env, $context, "@Twig/exception.css.twig");
-        echo "
+        echo twig_include($this->env, $context, '@Twig/exception.css.twig');
+        echo '
 
 .container {
     max-width: auto;
@@ -73,18 +75,16 @@ class __TwigTemplate_e0c96758f53e0a0666f152b3a1114b4b82383fff039040981d8cd9191c6
 .exception-message-wrapper .container {
     min-height: auto;
 }
-";
-        
+';
+
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
-        
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
     }
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Collector/exception.css.twig";
+        return '@WebProfiler/Collector/exception.css.twig';
     }
 
     public function isTraitable()
@@ -94,7 +94,7 @@ class __TwigTemplate_e0c96758f53e0a0666f152b3a1114b4b82383fff039040981d8cd9191c6
 
     public function getDebugInfo()
     {
-        return array (  41 => 1,);
+        return [41 => 1];
     }
 
     public function getSourceContext()
@@ -133,6 +133,6 @@ class __TwigTemplate_e0c96758f53e0a0666f152b3a1114b4b82383fff039040981d8cd9191c6
 .exception-message-wrapper .container {
     min-height: auto;
 }
-", "@WebProfiler/Collector/exception.css.twig", "/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig");
+", '@WebProfiler/Collector/exception.css.twig', '/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig');
     }
 }

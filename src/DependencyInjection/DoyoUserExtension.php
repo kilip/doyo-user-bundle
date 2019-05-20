@@ -67,8 +67,8 @@ class DoyoUserExtension extends Extension
             UserResourceVoter::PROFILE_UPDATE  => $roles['update_profile'],
         ]);
 
-        $this->mapParameters($container,'doyo_user.config',$config['config']);
-        $this->mapParameters($container,'doyo_user.mail_confirmation',$config['mail_confirmation']);
+        $this->mapParameters($container, 'doyo_user.config', $config['config']);
+        $this->mapParameters($container, 'doyo_user.mail_confirmation', $config['mail_confirmation']);
 
         //@todo make reset password token ttl
         $container->setParameter('doyo_user_bundle_path', realpath(__DIR__.'/../../'));
@@ -76,10 +76,10 @@ class DoyoUserExtension extends Extension
 
     private function mapParameters(ContainerBuilder $container, $nsPrefix, array $config)
     {
-        $container->setParameter($nsPrefix,$config);
-        foreach($config as $name => $key){
+        $container->setParameter($nsPrefix, $config);
+        foreach ($config as $name => $key) {
             $paramName = $nsPrefix.'.'.$name;
-            $container->setParameter($paramName,$config[$name]);
+            $container->setParameter($paramName, $config[$name]);
         }
     }
 }

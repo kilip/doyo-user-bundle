@@ -147,7 +147,7 @@ abstract class User implements UserInterface
     /**
      * {@inheritdoc}
      */
-    public function isPasswordRequestNonExpired($ttl):bool
+    public function isPasswordRequestNonExpired($ttl): bool
     {
         return  $this->getPasswordRequestedAt() instanceof \DateTime &&
                 $this->getPasswordRequestedAt()->getTimestamp() + $ttl > time();

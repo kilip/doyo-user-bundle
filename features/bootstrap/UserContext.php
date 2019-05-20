@@ -16,7 +16,6 @@ namespace Doyo\UserBundle\Behat;
 use App\Entity\User;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
-use Behat\Gherkin\Node\PyStringNode;
 use Behatch\Context\RestContext;
 use Doyo\UserBundle\Manager\UserManagerInterface;
 use Doyo\UserBundle\Util\TokenGeneratorInterface;
@@ -40,7 +39,7 @@ class UserContext implements Context
     private $restContext;
 
     /**
-     * @var integer
+     * @var int
      */
     private $retryTtl;
 
@@ -61,11 +60,10 @@ class UserContext implements Context
         UserManagerInterface $userManager,
         TokenGeneratorInterface $tokenGenerator,
         $retryTtl
-    )
-    {
-        $this->jwtManager = $jwtManager;
-        $this->userManager = $userManager;
-        $this->retryTtl = $retryTtl;
+    ) {
+        $this->jwtManager     = $jwtManager;
+        $this->userManager    = $userManager;
+        $this->retryTtl       = $retryTtl;
         $this->tokenGenerator = $tokenGenerator;
     }
 
@@ -86,8 +84,8 @@ class UserContext implements Context
     public function thereIsUser($username, string $password=null, string $role= null)
     {
         $userManager = $this->userManager;
-        $user     = $userManager->find($username);
-        $password = null === $password ? $username : $password;
+        $user        = $userManager->find($username);
+        $password    = null === $password ? $username : $password;
 
         if (null === $user) {
             $user = new User();
@@ -144,13 +142,15 @@ class UserContext implements Context
     /**
      * @Given I have request reset password for user :username
      * @Given I have request reset password
+     *
      * @param string $username
+     *
      * @throws \Exception
      */
     public function iHaveRequestPassword($username = null)
     {
-        $username = is_null($username) ? $this->currentUsername:$username;
-        $user = $this->thereIsUser($username);
+        $username    = null === $username ? $this->currentUsername : $username;
+        $user        = $this->thereIsUser($username);
         $userManager = $this->userManager;
 
         $user->setPasswordRequestedAt(new \DateTime());
@@ -161,13 +161,15 @@ class UserContext implements Context
     /**
      * @Given I have an expired request reset password for user :username
      * @Given I have an expired request reset password
+     *
      * @param string $username
+     *
      * @throws \Exception
      */
     public function iHaveAnExpiredRequestPassword($username = null)
     {
-        $username = is_null($username) ? $this->currentUsername:$username;
-        $user = $this->thereIsUser($username);
+        $username    = null === $username ? $this->currentUsername : $username;
+        $user        = $this->thereIsUser($username);
         $userManager = $this->userManager;
 
         $timestamp = (new \DateTime())->getTimestamp() - $this->retryTtl;
@@ -178,6 +180,7 @@ class UserContext implements Context
 
     /**
      * @Given My username is :username
+     *
      * @param string $username
      */
     public function myUsernameIs($username)
@@ -189,16 +192,18 @@ class UserContext implements Context
     /**
      * @Given I never request password
      * @Given I never request password for :username
+     *
      * @param string $username
+     *
      * @throws \Exception
      */
     public function iDonTRequestPassword($username=null)
     {
-        $username = is_null($username) ? $this->currentUsername:$username;
-        $user = $this->thereIsUser($username);
+        $username    = null === $username ? $this->currentUsername : $username;
+        $user        = $this->thereIsUser($username);
         $userManager = $this->userManager;
 
-        if($user->getPasswordRequestedAt() instanceof \DateTime){
+        if ($user->getPasswordRequestedAt() instanceof \DateTime) {
             $user->setPasswordRequestedAt(null);
             $userManager->update($user);
         }
@@ -209,11 +214,11 @@ class UserContext implements Context
      */
     public function iPostJSONRequestForNewPassword($password)
     {
-        $username = $this->currentUsername;
+        $username       = $this->currentUsername;
         $tokenGenerator = $this->tokenGenerator;
-        $user = $this->thereIsUser($username);
-        $manager = $this->userManager;
-        $restContext = $this->restContext;
+        $user           = $this->thereIsUser($username);
+        $manager        = $this->userManager;
+        $restContext    = $this->restContext;
 
         $token = $tokenGenerator->generateToken();
         $user->setConfirmationToken($token)->setPasswordRequestedAt(new \DateTime());
@@ -221,6 +226,6 @@ class UserContext implements Context
         $manager->update($user);
 
         $url = '/reset-password/foo/'.$token;
-        $restContext->iSendARequestTo('POST',$url,$strJson);
+        $restContext->iSendARequestTo('POST', $url, $strJson);
     }
 }

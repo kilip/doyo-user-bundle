@@ -1,16 +1,18 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
-use Twig\Template;
 
 /* @WebProfiler/Profiler/profiler.css.twig */
 class __TwigTemplate_26bcc3ca200d577628b149ce1c59d57dae88c17376664cbfaa712abde742fc9f extends \Twig\Template
@@ -31,14 +33,14 @@ class __TwigTemplate_26bcc3ca200d577628b149ce1c59d57dae88c17376664cbfaa712abde74
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/profiler.css.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions['Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension'];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Profiler/profiler.css.twig'));
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/profiler.css.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions['Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension'];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), 'template', '@WebProfiler/Profiler/profiler.css.twig'));
 
         // line 6
-        echo "*{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0;font-size:2em}mark{color:#000;background:#ff0}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,html input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type=\"checkbox\"],input[type=\"radio\"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type=\"number\"]::-webkit-inner-spin-button,input[type=\"number\"]::-webkit-outer-spin-button{height:auto}input[type=\"search\"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type=\"search\"]::-webkit-search-cancel-button,input[type=\"search\"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}legend{padding:0;border:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-spacing:0;border-collapse:collapse}td,th{padding:0}
+        echo '*{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0;font-size:2em}mark{color:#000;background:#ff0}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}legend{padding:0;border:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-spacing:0;border-collapse:collapse}td,th{padding:0}
 
 :root {
     --font-sans-serif: Helvetica, Arial, sans-serif;
@@ -122,9 +124,9 @@ class __TwigTemplate_26bcc3ca200d577628b149ce1c59d57dae88c17376664cbfaa712abde74
     --base-6: #f5f5f5;
 }
 
-";
+';
         // line 92
-        echo "html, body  {
+        echo 'html, body  {
     height: 100%;
     width: 100%;
 }
@@ -207,9 +209,9 @@ code, pre {
     font-size: 13px;
 }
 
-";
+';
         // line 177
-        echo "button {
+        echo 'button {
     font-family: var(--font-sans-serif);
 }
 .btn {
@@ -246,9 +248,9 @@ code, pre {
 .btn-link:hover {
     text-decoration: underline;
 }
-";
+';
         // line 216
-        echo "table, tr, th, td {
+        echo 'table, tr, th, td {
     background: var(--table-background);
     border-collapse: collapse;
     line-height: 1.5;
@@ -302,9 +304,9 @@ table tbody td.num-col {
     text-align: center;
 }
 
-";
+';
         // line 272
-        echo ".block {
+        echo '.block {
     display: block;
 }
 .full-width {
@@ -381,9 +383,9 @@ table tbody td.num-col {
 .label.status-warning { background: var(--color-warning); color: #FFF; }
 .label.status-error   { background: var(--background-error); color: #FFF; }
 
-";
+';
         // line 351
-        echo ".metrics {
+        echo '.metrics {
     margin: 1em 0 0;
     overflow: auto;
 }
@@ -450,13 +452,13 @@ table tbody td.num-col {
 .metric-divider {
     float: left;
     margin: 0 1em;
-    min-height: 1px; ";
+    min-height: 1px; ';
         // line 419
-        echo "}
+        echo '}
 
-";
+';
         // line 423
-        echo ".card {
+        echo '.card {
     background: var(--base-0);
     border: var(--border);
     box-shadow: var(--shadow);
@@ -476,9 +478,9 @@ table tbody td.num-col {
     color: var(--base-6);
 }
 
-";
+';
         // line 445
-        echo ".status-success {
+        echo '.status-success {
     background: rgba(94, 151, 110, 0.3);
 }
 .status-warning {
@@ -505,9 +507,9 @@ tr.status-warning td {
     color: var(--color-error);
 }
 
-";
+';
         // line 474
-        echo ".highlight pre {
+        echo '.highlight pre {
     margin: 0;
     white-space: pre-wrap;
 }
@@ -522,9 +524,9 @@ tr.status-warning td {
 .highlight .number    { color: #F5871F; font-weight: bold; }
 .highlight .error     { color: #C82829; }
 
-";
+';
         // line 491
-        echo ".sf-icon {
+        echo '.sf-icon {
     vertical-align: middle;
     background-repeat: no-repeat;
     background-size: contain;
@@ -548,9 +550,9 @@ tr.status-warning td {
 }
 
 
-";
+';
         // line 517
-        echo ".container {
+        echo '.container {
     max-width: 1300px;
     padding-right: 15px;
 }
@@ -589,9 +591,9 @@ tr.status-warning td {
     margin-top: 0;
 }
 
-";
+';
         // line 558
-        echo "#header {
+        echo '#header {
     background-color: #222;
     overflow: hidden;
 }
@@ -626,7 +628,7 @@ tr.status-warning td {
     width: 200px;
 }
 
-";
+';
         // line 595
         echo "#summary .status {
     background: var(--base-2);
@@ -693,7 +695,7 @@ tr.status-warning td {
 
 ";
         // line 660
-        echo "#sidebar {
+        echo '#sidebar {
     background: #444;
     color: #ccc;
     padding-bottom: 30px;
@@ -706,9 +708,9 @@ tr.status-warning td {
     width: 220px;
 }
 
-";
+';
         // line 675
-        echo "#sidebar #sidebar-shortcuts {
+        echo '#sidebar #sidebar-shortcuts {
     background: #333;
     width: 220px;
 }
@@ -733,9 +735,9 @@ tr.status-warning td {
     padding: .5em;
 }
 
-";
+';
         // line 702
-        echo "#sidebar-search .form-group:first-of-type {
+        echo '#sidebar-search .form-group:first-of-type {
     padding-top: 20px;
 }
 #sidebar-search .form-group {
@@ -769,9 +771,9 @@ tr.status-warning td {
     margin-right: 10px;
 }
 
-";
+';
         // line 738
-        echo "#menu-profiler {
+        echo '#menu-profiler {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -862,7 +864,7 @@ tr.status-warning td {
 
 }
 #menu-profiler li a span.count span + span::before {
-    content: \" / \";
+    content: " / ";
     color: #AAA;
 }
 
@@ -873,9 +875,9 @@ tr.status-warning td {
     background: var(--background-error);
 }
 
-";
+';
         // line 842
-        echo "#timeline-control {
+        echo '#timeline-control {
     background: var(--table-background);
     box-shadow: var(--shadow);
     margin: 1em 0;
@@ -914,9 +916,9 @@ tr.status-warning td {
     margin-top: 0;
 }
 
-";
+';
         // line 883
-        echo ".tab-navigation {
+        echo '.tab-navigation {
     margin: 0 0 1em 0;
     padding: 0;
 }
@@ -964,9 +966,9 @@ tr.status-warning td {
 
 .sf-tabs .tab:not(:first-child) { display: none; }
 
-";
+';
         // line 933
-        echo ".sf-toggle-content {
+        echo '.sf-toggle-content {
     -moz-transition: display .25s ease;
     -webkit-transition: display .25s ease;
     transition: display .25s ease;
@@ -978,7 +980,7 @@ tr.status-warning td {
     display: block;
 }
 
-";
+';
         // line 947
         echo "[data-filters] { position: relative; }
 [data-filtered] { cursor: pointer; }
@@ -1016,7 +1018,7 @@ tr.status-warning td {
 
 ";
         // line 983
-        echo "#twig-dump pre {
+        echo '#twig-dump pre {
     font-size: 12px;
     line-height: 1.7;
     background-color: var(--base-0);
@@ -1050,18 +1052,18 @@ tr.status-warning td {
     fill: #7eea12;
 }
 
-";
+';
         // line 1019
-        echo "table.logs .metadata {
+        echo 'table.logs .metadata {
     display: block;
     font-size: 12px;
 }
 .theme-dark tr.status-error td,
 .theme-dark tr.status-warning td { border-bottom: unset; border-top: unset; }
 
-";
+';
         // line 1028
-        echo ".sql-runnable {
+        echo '.sql-runnable {
     background: var(--base-1);
     margin: .5em 0;
     padding: 1em;
@@ -1084,9 +1086,9 @@ tr.status-warning td {
     hyphens: auto;
 }
 
-";
+';
         // line 1053
-        echo "#collector-content .decision-log .voter_result td {
+        echo '#collector-content .decision-log .voter_result td {
     border-top-width: 1px;
     border-bottom-width: 0;
     padding-bottom: 0;
@@ -1109,9 +1111,9 @@ tr.status-warning td {
     padding: 0 0 8px 0;
 }
 
-";
+';
         // line 1078
-        echo "
+        echo '
 #collector-content .sf-validator {
     margin-bottom: 2em;
 }
@@ -1135,9 +1137,9 @@ tr.status-warning td {
     background: rgba(255, 255, 153, 0.5);
 }
 
-";
+';
         // line 1104
-        echo "
+        echo '
 #collector-content .message-bus .trace {
     border: 1px solid #DDD;
     background: #FFF;
@@ -1156,9 +1158,9 @@ tr.status-warning td {
     background: rgba(255, 255, 153, 0.5);
 }
 
-";
+';
         // line 1125
-        echo "pre.sf-dump, pre.sf-dump .sf-dump-default {
+        echo 'pre.sf-dump, pre.sf-dump .sf-dump-default {
     z-index: 1000 !important;
 }
 
@@ -1212,9 +1214,9 @@ tr.status-warning td {
     padding: 0;
 }
 
-";
+';
         // line 1181
-        echo "#search-results td {
+        echo '#search-results td {
     font-family: var(--font-sans-serif);
     vertical-align: middle;
 }
@@ -1227,9 +1229,9 @@ tr.status-warning td {
     visibility: visible;
 }
 
-";
+';
         // line 1196
-        echo "
+        echo '
 .visible-small {
     display: none;
 }
@@ -1285,9 +1287,9 @@ tr.status-warning td {
     }
 }
 
-";
+';
         // line 1254
-        echo "body.width-full .container {
+        echo 'body.width-full .container {
     max-width: 100%;
 }
 
@@ -1311,23 +1313,21 @@ body.theme-light #collector-content .sf-dump-ellipsis-path { max-width: 5em; }
 body.theme-light #collector-content .sf-dump .trace li.selected {
     background: rgba(255, 255, 153, 0.5);
 }
-";
-        
+';
+
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
-        
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
     }
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Profiler/profiler.css.twig";
+        return '@WebProfiler/Profiler/profiler.css.twig';
     }
 
     public function getDebugInfo()
     {
-        return array (  1290 => 1254,  1232 => 1196,  1217 => 1181,  1161 => 1125,  1140 => 1104,  1114 => 1078,  1089 => 1053,  1064 => 1028,  1055 => 1019,  1019 => 983,  983 => 947,  969 => 933,  919 => 883,  878 => 842,  774 => 738,  738 => 702,  711 => 675,  696 => 660,  631 => 595,  594 => 558,  553 => 517,  527 => 491,  510 => 474,  481 => 445,  459 => 423,  455 => 419,  386 => 351,  307 => 272,  251 => 216,  212 => 177,  127 => 92,  41 => 6,);
+        return [1290 => 1254,  1232 => 1196,  1217 => 1181,  1161 => 1125,  1140 => 1104,  1114 => 1078,  1089 => 1053,  1064 => 1028,  1055 => 1019,  1019 => 983,  983 => 947,  969 => 933,  919 => 883,  878 => 842,  774 => 738,  738 => 702,  711 => 675,  696 => 660,  631 => 595,  594 => 558,  553 => 517,  527 => 491,  510 => 474,  481 => 445,  459 => 423,  455 => 419,  386 => 351,  307 => 272,  251 => 216,  212 => 177,  127 => 92,  41 => 6];
     }
 
     public function getSourceContext()
@@ -2609,6 +2609,6 @@ body.theme-light #collector-content .sf-dump-ellipsis-path { max-width: 5em; }
 body.theme-light #collector-content .sf-dump .trace li.selected {
     background: rgba(255, 255, 153, 0.5);
 }
-", "@WebProfiler/Profiler/profiler.css.twig", "/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/profiler.css.twig");
+", '@WebProfiler/Profiler/profiler.css.twig', '/project/doyo/user-bundle/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/profiler.css.twig');
     }
 }

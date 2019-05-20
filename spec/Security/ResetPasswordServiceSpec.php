@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the DoyoUserBundle project.
+ *
+ * (c) Anthonius Munthi <me@itstoni.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace spec\Doyo\UserBundle\Security;
 
 use Doyo\UserBundle\DoyoUserConstant;
@@ -18,20 +29,19 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ResetPasswordServiceSpec extends ObjectBehavior
 {
-    const retry_ttl = 7600;
+    public const retry_ttl = 7600;
 
-    function let(
+    public function let(
         UserManagerInterface $manager,
         EventDispatcherInterface $dispatcher,
         TokenGeneratorInterface $tokenGenerator,
         MailerInterface $mailer,
         Translator $translator,
         UserInterface $user
-    )
-    {
+    ) {
         $user->getEmail()->willReturn('some@email.com');
         $translator->trans(Argument::cetera())
-            ->will(function($args){
+            ->will(function ($args) {
                 return $args;
             });
         $this->beConstructedWith(
@@ -44,23 +54,22 @@ class ResetPasswordServiceSpec extends ObjectBehavior
         );
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(ResetPasswordService::class);
     }
 
-    function its_request_should_handle_request_properly(
+    public function its_request_should_handle_request_properly(
         UserManagerInterface $manager,
         EventDispatcherInterface $dispatcher,
         TokenGeneratorInterface $tokenGenerator,
         MailerInterface $mailer,
         UserInterface $user,
         Request $request
-    )
-    {
-        $token = 'some-token';
+    ) {
+        $token    = 'some-token';
         $username = 'some-username';
-        $json = <<<EOC
+        $json     = <<<EOC
 {
     "username": "$username"
 }
@@ -92,7 +101,6 @@ EOC;
             ->willReturn($user);
         $user->getEmail()->willReturn('some@email.com');
 
-
         $dispatcher->dispatch(
             DoyoUserConstant::RESET_PASSWORD_REQUEST,
                 Argument::type(UserEvent::class)
@@ -102,20 +110,19 @@ EOC;
         $mailer->sendResetPasswordEmailMessage($user)
             ->shouldBeCalled();
 
-        /* @var \Symfony\Component\HttpFoundation\JsonResponse $return */
+        /** @var \Symfony\Component\HttpFoundation\JsonResponse $return */
         $return = $this->request($request);
         $return->shouldBeAnInstanceOf(JsonResponse::class);
         $return->getStatusCode()->shouldReturn(200);
         $return->getContent()->shouldContain('reset_password.check_email');
     }
 
-    function its_request_should_return_404_when_user_not_exists(
+    public function its_request_should_return_404_when_user_not_exists(
         UserManagerInterface $manager,
         Request $request
-    )
-    {
+    ) {
         $username = 'some';
-        $json = <<<EOC
+        $json     = <<<EOC
 {
     "username": "$username"
 }
@@ -125,18 +132,17 @@ EOC;
         $manager->find(Argument::any())
             ->willReturn(null);
 
-        /* @var \Symfony\Component\HttpFoundation\JsonResponse $response */
+        /** @var \Symfony\Component\HttpFoundation\JsonResponse $response */
         $response = $this->request($request);
         $response->getStatusCode()->shouldReturn(404);
         $response->getContent()->shouldContain('reset_password.user_not_found');
     }
 
-    function its_request_should_return_406_when_password_request_not_expired(
+    public function its_request_should_return_406_when_password_request_not_expired(
         UserManagerInterface $manager,
         UserInterface $user,
         Request $request
-    )
-    {
+    ) {
         $request->getContent()->willReturn('{"username": "some"}');
         $user->getPasswordRequestedAt()->willReturn(new \DateTime());
         $user->isPasswordRequestNonExpired(Argument::any())
@@ -144,19 +150,18 @@ EOC;
         $manager->find(Argument::any())
             ->willReturn($user);
 
-        /* @var \Symfony\Component\HttpFoundation\JsonResponse $response */
+        /** @var \Symfony\Component\HttpFoundation\JsonResponse $response */
         $response = $this->request($request);
         $response->getStatusCode()->shouldReturn(406);
         $response->getContent()->shouldContain('reset_password.not_expired');
     }
 
-    function newPassword_return_404_when_reset_password_token_is_invalid(
+    public function newPassword_return_404_when_reset_password_token_is_invalid(
         UserManagerInterface $manager,
         Request $request,
         UserInterface $user
-    )
-    {
-        $token = 'some-token';
+    ) {
+        $token    = 'some-token';
         $password = 'some-password';
         $request->getContent()->willReturn($this->getJsonFixture('token-new-password.json'));
 
@@ -170,12 +175,11 @@ EOC;
         $response->getStatusCode()->shouldReturn(404);
     }
 
-    function its_newPassword_should_return_404_on_invalid_token(
+    public function its_newPassword_should_return_404_on_invalid_token(
         Request $request,
         UserManagerInterface $manager,
         UserInterface $user
-    )
-    {
+    ) {
         $token = 'some-token';
         $request->getContent()->willReturn($this->getJsonFixture('token-new-password.json'));
 
@@ -186,12 +190,11 @@ EOC;
         $response->getStatusCode()->shouldReturn(404);
     }
 
-    function its_newPassword_should_return_405_when_reset_password_token_expired(
+    public function its_newPassword_should_return_405_when_reset_password_token_expired(
         Request $request,
         UserManagerInterface $manager,
         UserInterface $user
-    )
-    {
+    ) {
         $token = 'some-token';
         $request->getContent()->willReturn($this->getJsonFixture('token-new-password.json'));
 
@@ -204,13 +207,12 @@ EOC;
         $response->getStatusCode()->shouldReturn(405);
     }
 
-    function its_newPassword_should_creates_new_password(
+    public function its_newPassword_should_creates_new_password(
         UserManagerInterface $manager,
         Request $request,
         UserInterface $user
-    )
-    {
-        $token = 'some-token';
+    ) {
+        $token    = 'some-token';
         $password = 'some-password';
         $request->getContent()->willReturn($this->getJsonFixture('token-new-password.json'));
 
@@ -238,7 +240,7 @@ EOC;
 
 class Translator implements TranslatorInterface
 {
-    public function trans($id, array $parameters = array(), $domain = null, $locale = null)
+    public function trans($id, array $parameters = [], $domain = null, $locale = null)
     {
         return $id;
     }
